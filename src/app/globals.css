@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+/* Add this to your global CSS or tailwind config */
+p {
+  display: block;
+  white-space: normal; /* Ensure text wraps naturally */
+  margin-bottom: 16px; /* Adds space below paragraphs */
+  word-wrap: break-word; /* Ensures words are properly broken if too long */
+}
+
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+ 
+    font-family: 'Roboto', sans-serif;
+  
+  
+}
