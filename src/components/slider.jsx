@@ -36,7 +36,7 @@ export default function Slider({ serverData }) {
   };
 
   return (
-    <div id="carouselExampleIndicators" className="relative w-full p-1 mt-6">
+    <div id="carouselExampleIndicators" className="relative w-full p-1 mt-6 ">
 
       <ol className="absolute bottom-[20px] left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
         {randomItems.map((_, index) => (
@@ -49,14 +49,14 @@ export default function Slider({ serverData }) {
       </ol>
 
     
-      <div className="carousel-inner relative rounded-lg overflow-hidden">
+      <div className="carousel-inner relative p-5 rounded-lg overflow-hidden">
         {randomItems.map((image, index) => (
           <Link href={`/${formatTitleForUrl(image.title)}/${image.id}`} key={index}>
             <div className={`carousel-item ${currentIndex === index ? "block" : "hidden"}`}>
               <img
                 src={image?.image}
                 alt={`Slide ${index + 1}`}
-                className="w-full object-cover max-h-[300px] sm:max-h-[400px]"
+                className="w-full object-cover max-h-[300px] sm:max-h-[400px] "
               />
               <div className="absolute font-semibold bottom-4 left-4 text-lg text-white p-2 text-[20px] rounded">
                 {image?.title}

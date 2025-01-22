@@ -6,6 +6,9 @@ import TopNews from '@/components/top_news';
 import { apiCall } from '@/app/apicallhook/Newsapi';
 import BlogCard from '@/components/blog';
 import Head from 'next/head';
+import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 const formatTitleForUrl = (title) => {
 
   return title
@@ -90,9 +93,12 @@ export default async function DiscriptionPage({ params }) {
     <div>
       <h1 className="text-[#2f3c42] text-2xl sm:text-3xl md:text-[30px] font-bold mt-7">
         {dataapi.title}
+        
       </h1>
       <div className="flex flex-row justify-between items-center mt-2">
         <h1 className="text-[10px] sm:text-md">{dataapi.domain}</h1>
+              <FontAwesomeIcon icon={faShareAlt} width={20}/>
+
       </div>
       <img
         src={dataapi.image}
