@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Slider({ serverData }) {
   // Take the first 5 items from the serverData array
-  const serverData1 = serverData.slice(5, 10);
+  const serverData1 = serverData
 
   // State to track current slide index
   const [currentIndex, setCurrentIndex] = useState(0);

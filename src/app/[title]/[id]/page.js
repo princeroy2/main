@@ -124,7 +124,7 @@ export default async function DiscriptionPage({ params }) {
                 {dataapi.title}
               </h1>
               <div className="flex flex-row justify-between items-center mt-2">
-                <h1 className="text-[10px] underline text-blue-500 sm:text-md">{dataapi.domain}</h1>
+                <h1 className="text-[14px] underline text-blue-500 sm:text-md">{dataapi.domain}</h1>
                 <ShareButton
                   title={dataapi.title}
                   url={`https://crptonews.com/${formattedTitle}/${dataapi.id}`}

@@ -1,10 +1,12 @@
-'use client';
+'use client'; // Ensure this code is client-side
+
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 const News_TypeButton = () => {
   const pathname = usePathname(); // Get the current pathname
+  
   const blockchainData = [
     { id: 1, name: 'All' },
     { id: 2, name: 'Bitcoin' },
@@ -19,32 +21,21 @@ const News_TypeButton = () => {
     { id: 11, name: 'Mining' },
   ];
 
-  // Set initial state for activeLink based on pathname or default to 'All'
-  const [activeLink, setActiveLink] = useState(() => {
-    const pathPart = pathname.split('/')[2]; // Extract part after '/news/'
-    return pathPart || 'All'; // Default to 'All' if no valid path
-  });
-
-  useEffect(() => {
-    // Whenever the pathname changes, update the active link
-    const pathPart = pathname.split('/')[2];
-    setActiveLink(pathPart || 'All');
-  }, [pathname]); // Re-run effect when pathname changes
+  // Derive the active link directly from the pathname
+  const pathPart = pathname.split('/')[2]; // Get part after '/news/'
+  console.log(pathPart)
+  const activeLink = pathPart || 'all'; // Default to 'All' if path is empty or invalid
 
   return (
     <ul className="flex max-md:space-x-2 space-x-5 mt-5 max-md:pb-4 pb-3 items-center justify-center mx-auto h-full max-lg:overflow-auto">
       {blockchainData.map((item) => (
         <li
           key={item.id}
-          className={`hover:bg-gray-400 ${
-            activeLink === item.name ? 'bg-gray-900 text-white' : 'bg-[#fffdf6] text-gray-600'
-          } text-[#b0bec5] hover:text-white px-3 max-md:text-[10px] max-lg:text-[12px] text-[12px] font-bold rounded-[8px] py-[3px] border border-solid border-[#b4c5ce]`}
+          className={`hover:bg-gray-400 ${activeLink === item.name.toLowerCase() ? 'bg-gray-900 text-white' : 'bg-[#fffdf6] text-gray-600'} text-[#b0bec5] hover:text-white px-3 max-md:text-[10px] max-lg:text-[12px] text-[12px] font-bold rounded-[8px] py-[3px] border border-solid border-[#b4c5ce]`}
         >
           <Link
-            href={`/news/${item.name}`}
-            className={`${
-              activeLink === item.name ? 'bg-gray-900 text-white' : ''
-            } focus:outline-none`}
+            href={`/news/${item.name.toLowerCase() === 'all' ? 'all' : item.name.toLowerCase()}`}
+            className={`${activeLink === item.name ? 'bg-gray-900 text-white' : ''} focus:outline-none`}
           >
             {item.name}
           </Link>

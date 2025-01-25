@@ -112,9 +112,10 @@ export default async function Main({ params }) {
   const Apidata = await apiCall(); // Fetch your API data
 
   // Filter articles based on the name from the URL
-  const filteredArticles = Apidata.filter(item =>
+  const filteredArticles = name === 'all' ? Apidata : Apidata.filter(item =>
     item.title.toLowerCase().includes(name.toLowerCase())
   );
+
 
   return (
     <>
@@ -125,7 +126,7 @@ export default async function Main({ params }) {
         <div className="sm:px-6 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-10">
             <div className="md:col-span-2 space-y-6">
-              <Slider serverData={filteredArticles} /> {/* Slider for filtered articles */}
+              <Slider serverData={filteredArticles.slice(0,5)} /> {/* Slider for filtered articles */}
               <MainNews serverData={filteredArticles} /> {/* Main news component */}
             </div>
             <div className="mb-5 max-md:px-9">

@@ -5,7 +5,7 @@ import Link from 'next/link';
 const TopNews = ({serverData}) => {
 
 
-  const randomItems = serverData.slice(10,16)
+  const randomItems = serverData
   const formatTitleForUrl = (title) => {
     return title
       .toLowerCase()  // Convert to lowercase

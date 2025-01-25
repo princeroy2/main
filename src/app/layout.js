@@ -3,6 +3,7 @@ import Footer from "@/components/footer";
 import Head from "next/head";
 import "./globals.css";
 
+// Global metadata configuration
 export const metadata = {
   title: "CryptoNews | Latest Cryptocurrency News & Updates",
   description: "Stay up to date with the latest cryptocurrency news, blockchain updates, market trends, and expert analysis on cryptonews.com.",
@@ -27,8 +28,6 @@ export const metadata = {
     image: '/images/twitter-image.jpg',
   },
 
-
-
   // Charset Tag
   charset: 'UTF-8',
 
@@ -36,7 +35,6 @@ export const metadata = {
 
   // Favicon Tag
   favicon: '/favicon.ico',
-
   // Structured Data (JSON-LD)
   structuredData: {
     "@context": "https://schema.org",
@@ -54,16 +52,22 @@ export const metadata = {
     }
   }
 };
+
+// Viewport settings
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
 };
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+   <Head>
+          <meta name="google-site-verification" content="sz2xoVH4-nQcPFfRiOmGw_AYK6eLGrTuQmrC6a-XP3k" />
    
+        </Head>
       <body>
         <Header />
         {children}
