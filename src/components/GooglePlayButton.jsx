@@ -1,20 +1,28 @@
-// components/GooglePlayBadge.js  
-const GooglePlayBadge = () => {  
-    return (  
-      <div>  
-        <svg  
-          xmlns="http://www.w3.org/2000/svg"  
-          width="200"  
-          height="60"  
-          viewBox="0 0 512 174"  
-          fill="none"  
-        >  
-          {/* Paste the SVG content here */}  
-          <path d="M0 0h512v174H0z" fill="none" />  
-          {/* Add more paths and elements as needed */}  
-        </svg>  
-      </div>  
-    );  
-  };  
-  
-  export default GooglePlayBadge;
+import React from 'react';
+
+const DownloadBadges = () => {
+  return (
+    <div className="flex flex-1 gap-4 hover:cursor-pointer">
+      <div className="w-[130px] h-[110px]">
+        <img
+          src="https://www.crptonews.com/svg/google-play-badge.svg" // Access SVG from public/svg
+          width="130"
+          height="110"
+          alt="Google Play"
+        />
+      </div>
+
+
+      <div className="w-[130px] h-[110px]">
+        <img
+          src="https://www.crptonews.com/svg/app-store-apple-badge.svg" // Access SVG from public/svg
+          width="130"
+          height="110"
+          alt="Apple App Store"
+        />
+      </div>
+    </div>
+  );
+};
+
+export default DownloadBadges;

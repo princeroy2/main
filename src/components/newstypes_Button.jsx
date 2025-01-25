@@ -32,13 +32,13 @@ const News_TypeButton = () => {
   }, [pathname]); // Re-run effect when pathname changes
 
   return (
-    <ul className="flex space-x-5 mt-5 pb-3 items-center justify-center mx-auto h-full max-lg:overflow-auto">
+    <ul className="flex max-md:space-x-2 space-x-5 mt-5 max-md:pb-4 pb-3 items-center justify-center mx-auto h-full max-lg:overflow-auto">
       {blockchainData.map((item) => (
         <li
           key={item.id}
           className={`hover:bg-gray-400 ${
-            activeLink === item.name ? 'bg-gray-900 text-white' : 'bg-[#fffdf6] text-[#b0bec5]'
-          } text-[#b0bec5] hover:text-white px-3 max-md:text-[10px] max-lg:text-[10px] text-[12px] font-bold rounded-[8px] py-[3px] border border-solid border-[#b4c5ce]`}
+            activeLink === item.name ? 'bg-gray-900 text-white' : 'bg-[#fffdf6] text-gray-600'
+          } text-[#b0bec5] hover:text-white px-3 max-md:text-[10px] max-lg:text-[12px] text-[12px] font-bold rounded-[8px] py-[3px] border border-solid border-[#b4c5ce]`}
         >
           <Link
             href={`/news/${item.name}`}

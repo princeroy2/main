@@ -1,18 +1,11 @@
 'use client'
 
 import React from 'react';
-// import useApiCall from '../apicallhook/useApiCall';
 import Link from 'next/link';
 const TopNews = ({serverData}) => {
-  // const { data, loading, error } = useApiCall();
-  // const headline = Array.isArray(data?.news) ? data.news : [];
-  const newsItems =serverData
-  const getRandomItems = (data, count = 5) => {
-    const shuffled = [...data].sort(() => 0.5 - Math.random()); // Shuffle the array
-    return shuffled.slice(0, count); // Take first 5 items
-  };
 
-  const randomItems = getRandomItems(serverData);
+
+  const randomItems = serverData.slice(10,16)
   const formatTitleForUrl = (title) => {
     return title
       .toLowerCase()  // Convert to lowercase
