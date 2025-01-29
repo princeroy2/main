@@ -1,6 +1,7 @@
 import { Header } from "@/components/header";
 import Footer from "@/components/footer";
 import Head from "next/head";
+import { Analytics } from "@vercel/analytics/react"
 import "./globals.css";
 
 // Global metadata configuration
@@ -69,6 +70,7 @@ export default function RootLayout({ children }) {
       <body>
         <Header />
         {children}
+        <Analytics />
         <Footer />
       </body>
     </html>
