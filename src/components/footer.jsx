@@ -7,7 +7,7 @@ const Footer = () => {
   <footer className="bg-gray-900 text-white pt-12 pb-8 px-4">
     <div className="mx-auto px-4 container overflow-hidden flex flex-col lg:flex-row justify-between">
         <a href="/" className="block mr-4 w-1/3">
-            <h1 className="text-gray-500">Never miss an update! Download our app for breaking news and more</h1>
+            <h1 className="text-white">Never miss an update! Download our app for breaking news and more</h1>
 
            <DownloadBadges/>
         </a>
@@ -24,12 +24,14 @@ const Footer = () => {
                 <li><Link href="/blog" className="inline-block py-2 px-3 text-gray-500 hover:text-white no-underline">New Blog</Link>
                 </li>
                 <li><Link href="/blog" className="inline-block py-2 px-3 text-gray-500 hover:text-white no-underline">All Blog</Link></li>
+                <li><Link href="/ico" className="inline-block py-2 px-3 text-gray-500 hover:text-white no-underline">ICO</Link></li>
+
             </ul>
             <ul className="text-gray-700 list-none p-0 font-thin flex flex-col text-left w-full">
                 <li className="inline-block py-2 px-3 text-white uppercase font-medium tracking-wide">About us</li>
                 <li><Link href="/contact-us" className="inline-block py-2 px-3 text-gray-500 hover:text-white no-underline">Contact us</Link></li>
                 <li><Link href="/term-condition" className="inline-block py-2 px-3 text-gray-500 hover:text-white no-underline">Terms of Service</Link></li>
-                <li><Link href="/privacy-policies" className="inline-block py-2 px-3 text-gray-500 hover:text-white no-underline">Privacy Policy</Link></li>
+                <li><Link href="/privacy-policy" className="inline-block py-2 px-3 text-gray-500 hover:text-white no-underline">Privacy Policy</Link></li>
                 <li><Link href="/about-us" className="inline-block py-2 px-3 text-gray-500 hover:text-white no-underline">About us</Link></li>
              
             </ul>

@@ -4,6 +4,7 @@ const staticPages = [
   { url: '/contact-us', time: '2025-01-25' },
   { url: '/term-condition', time: '2025-01-25' },
   { url: '/privacy-policy', time: '2025-01-25' },
+  { url: '/ico', time: '2025-01-25' },
 ];
 
 // Generate the sitemap

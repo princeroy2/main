@@ -1,11 +1,5 @@
-'use client'
-
-import React from 'react';
 import Link from 'next/link';
 const TopNews = ({serverData}) => {
-
-
-  const randomItems = serverData
   const formatTitleForUrl = (title) => {
     return title
       .toLowerCase()  // Convert to lowercase
@@ -17,7 +11,7 @@ const TopNews = ({serverData}) => {
   const visibleItems=6
   return (
     <div className='w-full'>
-    {randomItems?.slice(0, visibleItems).map((itmes,index)=>{
+    {serverData?.slice(0, visibleItems).map((itmes,index)=>{
       return (
         <Link href={`/${formatTitleForUrl(itmes?.title)}/${itmes?.id}`} key={index}>
   <div className='w-full mt-2'>

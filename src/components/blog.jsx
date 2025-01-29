@@ -21,7 +21,7 @@ const BlogCard = async () => {
         <Link href={`/blog/${formatTitleForUrl(itmes?.title)}`} key={index}>
   <div className='w-full mt-4'>
   <div className='flex flex-row max-md:flex-col max-lg:flex-row gap-5 p-2 hover:bg-white hover:shadow-md '>
-  <img src={itmes.image_main} alt="" className='md:w-1/3  rounded-lg' />
+  <img src={itmes.image2} alt="" className='md:w-1/3  rounded-lg' />
   <div className='flex flex-col gap-2'>
     <p className='md:text-[14px] font-semibold text-[#37474f] '>{itmes?.title}</p>
     <div className='flex flex-row gap-5'>

@@ -7,7 +7,7 @@ export const metadata = {
   openGraph: {
     title: 'Terms and Conditions - CryptoNews',
     description: 'Read the Terms and Conditions for using CryptoNews, including content ownership, user conduct, liability, and more.',
-    image: '/default-image.jpg', // You can replace this with a custom image URL
+    image: 'https://crptonews.com/images/logo.png', // You can replace this with a custom image URL
     url: 'https://crptonews.com/term-condition', // Set the URL to the page
     type: 'website',
     locale: 'en_US', // Locale for OpenGraph
@@ -16,7 +16,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Terms and Conditions - CryptoNews',
     description: 'Read the Terms and Conditions for using CryptoNews, including content ownership, user conduct, liability, and more.',
-    image: '/default-image.jpg', // You can replace this with a custom image URL
+    image: 'https://crptonews.com/images/logo.png', // You can replace this with a custom image URL
   },
   canonical: 'https://crptonews.com/term-condition', // The canonical URL for the page
   robots: 'index, follow', // Ensure that the page is indexed by search engines
@@ -35,7 +35,7 @@ export const metadata = {
       name: 'CryptoNews',
       logo: {
         '@type': 'ImageObject',
-        url: '/images/logo.png', // Replace with your site's logo URL
+        url: 'https://crptonews.com/images/logo.png', // Replace with your site's logo URL
       },
     },
   },
@@ -104,7 +104,7 @@ export default function Terms() {
             </div>
             <div className="flex items-center text-gray-700">
               <FiPhone className="text-2xl mr-3" />
-              <a href="tel:+1234567890" className="text-blue-600 hover:text-blue-800">+1 (234) 567-890</a>
+              <a href="tel:+1234567890" className="text-blue-600 hover:text-blue-800">+923021677732</a>
             </div>
           </div>
         </div>

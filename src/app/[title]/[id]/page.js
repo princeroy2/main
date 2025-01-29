@@ -30,7 +30,7 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: 'Article not found',
         description: 'This article could not be found.',
-        image: '/default-image.jpg',
+        image: 'https://crptonews.com/images/logo.png',
         url: 'https://crptonews.com',
         type: 'website',
       },
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }) {
         card: 'summary_large_image',
         title: 'Article not found',
         description: 'This article could not be found.',
-        image: '/default-image.jpg',
+        image: 'https://crptonews.com/images/logo.png',
       },
       robots: 'noindex, nofollow',
     };
@@ -51,7 +51,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `${article.title} - CryptoNews`,
       description: article.description,
-      image: article.image || '/default-image.jpg',
+      image: article.image || 'https://crptonews.com/images/logo.png',
       url: `https://crptonews.com/${formattedTitle}/${article.id}`,
       type: 'article',
       locale: 'en_US', // Use appropriate locale
@@ -60,7 +60,7 @@ export async function generateMetadata({ params }) {
       card: 'summary_large_image',
       title: `${article.title} - CryptoNews`,
       description: article.description,
-      image: article.image || '/default-image.jpg',
+      image: article.image || 'https://crptonews.com/images/logo.png',
     },
     canonical: `https://crptonews.com/${formattedTitle}/${article.id}`,
     robots: 'index, follow', // Make sure the page is indexed
@@ -86,7 +86,7 @@ export async function generateMetadata({ params }) {
         name: 'CryptoNews',
         logo: {
           '@type': 'ImageObject',
-          url: '/images/logo.png', // Update with your site's logo
+          url: 'https://crptonews.com/images/logo.png', // Update with your site's logo
         },
       },
       mainEntityOfPage: `https://crptonews.com/${formattedTitle}/${article.id}`,
@@ -121,33 +121,36 @@ export default async function DiscriptionPage({ params }) {
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-[4fr_2fr] sm:gap-6 md:gap-10 gap-6">
             <div>
               <h1 className="text-[#2f3c42] text-2xl sm:text-3xl md:text-[30px] font-bold mt-7" >
-                {dataapi.title}
+                {dataapi?.title}
               </h1>
               <div className="flex flex-row justify-between items-center mt-2">
-                <h1 className="text-[14px] underline text-blue-500 sm:text-md">{dataapi.domain}</h1>
-                <ShareButton
-                  title={dataapi.title}
+                <h1 className="text-[14px] underline text-blue-500 sm:text-md">{dataapi?.domain}</h1>
+           
+              <ShareButton
+                  title={dataapi?.title}
                   url={`https://crptonews.com/${formattedTitle}/${dataapi.id}`}
                   image={dataapi.image}
                 />
+             
               </div>
+              <h1 className='text-[12px] flex justify-end'>{dataapi?.time}</h1>
 
               <img
-                src={dataapi.image}
-                alt={dataapi.title}
+                src={dataapi?.image}
+                alt={dataapi?.title}
                 className="w-full mt-4 rounded-lg"
               />
               <div className="flex flex-col">
                 <p className=" mt-6 font-semibold max-md:text-[18px] leading-[2rem] text-[#37474f] tracking-[0.08rem] break-words">
-                  {dataapi.description}
+                  {dataapi?.description}
                 </p>
               </div>
 
               <a
-                href={dataapi.link}
+                href={dataapi?.link}
                 className="text-blue-500 hover:text-blue-700 underline mt-5 font-semibold flex items-center space-x-2"
               >
-                <span>{dataapi.link}</span>
+                <span>{dataapi?.link}</span>
                 <FiArrowUpRight className="text-blue-500 hover:text-blue-700 text-xl" />
               </a>
             </div>

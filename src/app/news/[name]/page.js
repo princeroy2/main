@@ -1,9 +1,8 @@
 import Slider from "@/components/slider";
-import MainNews from "@/components/main_news";
 import { apiCall } from "@/app/apicallhook/Newsapi";
 import TopNews from "@/components/top_news";
 import News_TypeButton from "@/components/newstypes_Button";
-
+import MainNews2 from "@/components/main_news2";
 
 
 // SEO Metadata generation for each article
@@ -26,14 +25,14 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: `No News Found - CryptoNews`,
         description: `Sorry, we couldn't find news for ${name}.`,
-        image: "/default-image.jpg",
+        image: "https://crptonews.com/images/logo.png",
         url: `https://crptonews.com/news/${name}`,
       },
       twitter: {
         card: "summary_large_image",
         title: `No News Found - CryptoNews`,
         description: `Sorry, we couldn't find news for ${name}.`,
-        image: "/default-image.jpg",
+        image: "https://crptonews.com/images/logo.png",
       },
       structuredData: {
         "@context": "https://schema.org",
@@ -52,7 +51,7 @@ export async function generateMetadata({ params }) {
           name: "CryptoNews",
           logo: {
             "@type": "ImageObject",
-            url: "/images/logo.png", // Change this to your site's logo URL
+            url: "https://crptonews.com/images/logo.png", // Change this to your site's logo URL
           },
         },
         mainEntityOfPage: `https://crptonews.com/news/${name}`,
@@ -67,7 +66,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `${article.title} - CryptoNews`,
       description: article.description,
-      image: article.image || "/default-image.jpg",
+      image: article.image || "https://crptonews.com/images/logo.png",
       url: `https://crptonews.com/news/${name}`,
       type: "article",
       locale: "en_US",
@@ -76,7 +75,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: `${article.title} - CryptoNews`,
       description: article.description,
-      image: article.image || "/default-image.jpg",
+      image: article.image || "https://crptonews.com/images/logo.png",
     },
     structuredData: {
       "@context": "https://schema.org",
@@ -95,7 +94,7 @@ export async function generateMetadata({ params }) {
         name: "CryptoNews",
         logo: {
           "@type": "ImageObject",
-          url: "/images/logo.png", // Change this to your site's logo URL
+          url: "https://crptonews.com/images/logo.png", // Change this to your site's logo URL
         },
       },
       mainEntityOfPage: `https://crptonews.com/news/${name}`,
@@ -117,6 +116,8 @@ export default async function Main({ params }) {
   );
 
 
+
+
   return (
     <>
       <div>
@@ -126,12 +127,12 @@ export default async function Main({ params }) {
         <div className="sm:px-6 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-10">
             <div className="md:col-span-2 space-y-6">
-              <Slider serverData={filteredArticles.slice(0,5)} /> {/* Slider for filtered articles */}
-              <MainNews serverData={filteredArticles} /> {/* Main news component */}
+              <Slider serverData={filteredArticles.length>10?filteredArticles.slice(5,10):filteredArticles.slice(0,5)} /> {/* Slider for filtered articles */}
+              <MainNews2 serverData={filteredArticles} /> {/* Main news component */}
             </div>
             <div className="mb-5 max-md:px-9">
               <h1 className="mt-6 text-start ml-5 mb-0 font-semibold text-lg">Top News</h1>
-              <TopNews serverData={filteredArticles} /> {/* Top news sidebar */}
+              <TopNews serverData={filteredArticles.length>15?filteredArticles.slice(10,15):filteredArticles.slice(0,5)} /> {/* Top news sidebar */}
             </div>
           </div>
         </div>

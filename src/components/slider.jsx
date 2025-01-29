@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Slider({ serverData }) {
-  // Take the first 5 items from the serverData array
   const serverData1 = serverData
-
+  if (!serverData) {
+    return <h1>Loading...</h1>
+  }
   // State to track current slide index
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -31,7 +32,7 @@ export default function Slider({ serverData }) {
     <div className="relative w-full mt-6 max-md:px-3">
    
       <ol className="absolute max-md:bottom-2 bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
-        {serverData1.map((_, index) => (
+        {serverData1?.map((_, index) => (
           <li
             key={index}
             className={`cursor-pointer max-md:h-1 max-md:w-1 h-2 w-2 rounded-full ${currentIndex === index ? "bg-white w-4 h-1" : "bg-gray-500"}`}
@@ -41,7 +42,7 @@ export default function Slider({ serverData }) {
       </ol>
 
       <div className="carousel-inner relative overflow-hidden">
-        {serverData1.map((image, index) => (
+        {serverData1?.map((image, index) => (
           <div
             key={index}
             className={`carousel-item ${currentIndex === index ? "block" : "hidden"}`}
@@ -52,8 +53,10 @@ export default function Slider({ serverData }) {
                 alt={`Slide ${index + 1}`}
                 className="w-full object-cover  h-full rounded-lg"
               />
+                  <div className="absolute inset-0 bg-black opacity-50 rounded-lg"></div> {/* Transparent black overlay */}
+
             </Link>
-            <div className="absolute max-md:bottom-3 md:bottom-12 text-lg text-white text-center px-6 text-[20px] rounded">
+            <div className="absolute max-md:bottom-3 md:bottom-12 text-lg text-white text-center px-6 text-[22px] rounded">
               {image?.title}
             </div>
           </div>

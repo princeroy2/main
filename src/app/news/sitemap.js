@@ -42,7 +42,7 @@ export default async function sitemap({ id }) {
   const urls = pageData.map((product) => ({
     url: `https://www.crptonews.com/news/${product.name}/`,
     lastModified: product.time,
-    changeFreq: 'daily',
+    changeFreq: 'monthly',
     priority: 0.8,
   }));
 

@@ -64,12 +64,12 @@ export default function Contact() {
 
               <div className="flex items-center text-gray-700 mb-4">
                 <FiPhone className="text-2xl mr-3" />
-                <a href="tel:+1234567890" className="text-blue-600 hover:text-blue-800">+1 (234) 567-890</a>
+                <a href="tel:+923021677732" className="text-blue-600 hover:text-blue-800">+923021677732</a>
               </div>
 
               <div className="flex items-center text-gray-700 mb-4">
                 <FaWhatsapp className="text-2xl mr-3" />
-                <a href="https://wa.me/1234567890" className="text-green-600 hover:text-green-800" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/923021677732" className="text-green-600 hover:text-green-800" target="_blank" rel="noopener noreferrer">
                   WhatsApp Us
                 </a>
               </div>

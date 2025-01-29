@@ -17,7 +17,7 @@ const formatTitleForUrl = (title) => {
 
 // SEO Metadata generation (Next.js specific function)
 export async function generateMetadata({ params }) {
-  const title = params?.title; // Safe access to params.title
+  const title =await params?.title; // Safe access to params.title
   const formattedTitle = formatTitleForUrl(title);  // Format title from the URL
 
   // If title is not provided, return default metadata
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }) {
         card: 'summary_large_image',
         title: 'Article not found',
         description: 'This article could not be found.',
-        image: '/default-image.jpg',
+        image: 'https://crptonews.com/images/logo.png',
       },
       robots: 'noindex, nofollow',
     };
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: 'Article not found',
         description: 'This article could not be found.',
-        image: '/default-image.jpg',
+        image: 'https://crptonews.com/images/logo.png',
         url: 'https://crptonews.com',
         type: 'website',
       },
@@ -62,7 +62,7 @@ export async function generateMetadata({ params }) {
         card: 'summary_large_image',
         title: 'Article not found',
         description: 'This article could not be found.',
-        image: '/default-image.jpg',
+        image: 'https://crptonews.com/images/logo.png',
       },
       robots: 'noindex, nofollow',
     };
@@ -110,7 +110,7 @@ export async function generateMetadata({ params }) {
         name: 'CryptoNews',
         logo: {
           '@type': 'ImageObject',
-          url: '/images/logo.png', // Update with your site's logo
+          url: 'https://crptonews.com/images/logo.png',
         },
       },
       mainEntityOfPage: `https://crptonews.com/blog/${formattedTitle}`,
@@ -129,7 +129,7 @@ export default async function DiscriptionPage({ params }) {
 
   // Find the article that matches `title`
   const dataapi = article.find((item) => formatTitleForUrl(item.title) === title);
-
+  const artilcedatais=5
   if (!dataapi) {
     return <div>Article not found</div>;
   }
@@ -151,27 +151,42 @@ export default async function DiscriptionPage({ params }) {
                 <ShareButton
               title={dataapi.title}
               url={`https://crptonews.com/blog/${formattedTitle}`}
-              image={dataapi.image_main}
+              image={dataapi.image2}
             />
               </div>
               <img
-                src={dataapi.image_main}
+                src={dataapi.image2}
                 alt={dataapi.title}
                 className="w-full mt-4 rounded-lg"
               />
-              <p className="mt-6 leading-[2rem] font-semibold max-md:text-[18px] flex overflow-hidden text-[#37474f] tracking-[0.08rem] mb-4">
-                {dataapi.description}
-              </p>
+           {
+  // Loop over the range from 1 to 5
+  Array.from({ length: 5 }, (_, index) => (
+    <div key={index}>
+   
+    <h1 className='font-bold text-[24px] mt-5'>     {dataapi[`heading${index + 1}`]}
+</h1>
+    <p
+      key={index}
+      className="mt-6 leading-[2rem] font-semibold max-md:text-[18px] flex overflow-hidden text-[#37474f] tracking-[0.08rem] mb-4"
+    >
+      {dataapi[`description${index + 1}`]}
+    </p>
+    </div>
+  ))
+}
+
+             
               <img
                 src={dataapi.image1}
                 alt={dataapi.title}
                 className="w-full mt-4 rounded-lg"
               />
               <a
-                href={dataapi.link}
+                href={dataapi?.link}
                 className="text-blue-500 hover:text-blue-700 underline mt-5 font-semibold flex items-center space-x-2"
               >
-                <span>{dataapi.link}</span>
+                <span>{`https://crptonews.com/blog/${formattedTitle}`}</span>
                 <FiArrowUpRight className="text-blue-500 hover:text-blue-700 text-xl" />
               </a>
             </div>

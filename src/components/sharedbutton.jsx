@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { FaFacebookF, FaWhatsapp, FaTwitter } from 'react-icons/fa'; // Import social media icons
 import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-const ShareButton = ({ title, url, image }) => {
+const ShareButton = ({ title, url }) => {
   const [showIcons, setShowIcons] = useState(false); // State to toggle the visibility of icons
 
   const handleClick = () => {
