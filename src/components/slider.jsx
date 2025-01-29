@@ -52,7 +52,7 @@ export default function Slider({ serverData }) {
                 src={image?.image}
                 alt={`Slide ${index + 1}`}
                 className="w-full object-cover  h-full rounded-lg"
-              />
+              />    
                   <div className="absolute inset-0 bg-black opacity-50 rounded-lg"></div> {/* Transparent black overlay */}
 
             </Link>

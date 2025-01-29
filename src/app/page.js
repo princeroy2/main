@@ -7,6 +7,7 @@ import { ArticleapiCall } from "./apicallhook/ArticleApi";
 import MainNews2 from "@/components/main_news2";
 import Ico2 from "@/components/ico_token2";
 import Head from "next/head";
+import AdIframe from "@/components/ads2";
 import Script from "next/script";
 import { AdComponent } from "@/components/ads";
 export default async function Main() {
@@ -56,9 +57,13 @@ export default async function Main() {
            
           </div>
           <div className="mb-5 max-md:px-9">
+<AdIframe/>
             <h1 className="mt-6 text-start ml-5 mb-0 font-semibold text-lg">Top News</h1>
             <TopNews serverData={Apidatatopnews} />
             <BlogCard serverData={apidata2} />
+            
+      {/* <script async src="https://appsha-prm.ctengine.io/js/script.js?wkey=q5X3IKTaip"></script> */}
+    
           </div>
         </div>
         
