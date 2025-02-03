@@ -5,6 +5,7 @@ import { apiCall } from '@/app/apicallhook/Newsapi';
 import BlogCard from '@/components/blog';
 
 import ShareButton from '@/components/sharedbutton';
+import Custom404 from './404';
 
 
 const formatTitleForUrl = (title) => {
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: 'Article not found',
         description: 'This article could not be found.',
-        image: 'https://crptonews.com/images/logo.png',
+        image: '/default-image.jpg',
         url: 'https://crptonews.com',
         type: 'website',
       },
@@ -38,7 +39,7 @@ export async function generateMetadata({ params }) {
         card: 'summary_large_image',
         title: 'Article not found',
         description: 'This article could not be found.',
-        image: 'https://crptonews.com/images/logo.png',
+        image: '/default-image.jpg',
       },
       robots: 'noindex, nofollow',
     };
@@ -51,7 +52,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `${article.title} - CryptoNews`,
       description: article.description,
-      image: article.image || 'https://crptonews.com/images/logo.png',
+      image: article.image || '/default-image.jpg',
       url: `https://crptonews.com/${formattedTitle}/${article.id}`,
       type: 'article',
       locale: 'en_US', // Use appropriate locale
@@ -60,7 +61,7 @@ export async function generateMetadata({ params }) {
       card: 'summary_large_image',
       title: `${article.title} - CryptoNews`,
       description: article.description,
-      image: article.image || 'https://crptonews.com/images/logo.png',
+      image: article.image || '/default-image.jpg',
     },
     canonical: `https://crptonews.com/${formattedTitle}/${article.id}`,
     robots: 'index, follow', // Make sure the page is indexed
@@ -86,7 +87,7 @@ export async function generateMetadata({ params }) {
         name: 'CryptoNews',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://crptonews.com/images/logo.png', // Update with your site's logo
+          url: '/images/logo.png', // Update with your site's logo
         },
       },
       mainEntityOfPage: `https://crptonews.com/${formattedTitle}/${article.id}`,
@@ -108,7 +109,7 @@ export default async function DiscriptionPage({ params }) {
   console.log(formattedTitle)
 
   if (!dataapi) {
-    return <div>Article not found</div>;
+    return <Custom404/>;
   }
 
   return (
@@ -141,9 +142,10 @@ export default async function DiscriptionPage({ params }) {
                 className="w-full mt-4 rounded-lg"
               />
               <div className="flex flex-col">
-                <p className=" mt-6 font-semibold max-md:text-[18px] leading-[2rem] text-[#37474f] tracking-[0.08rem] break-words">
+                <p className="text mt-6 font-serif max-md:text-[18px] leading-[3rem] text-[#37474f] tracking-[0.08rem] break-words overflow-wrap-break-word whitespace-pre-line">
                   {dataapi?.description}
                 </p>
+      
               </div>
 
               <a

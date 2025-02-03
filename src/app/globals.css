@@ -9,9 +9,25 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+      --background-color: #121212;
+      --text-color: #ffffff;
+      --foreground: #ededed;
   }
+}
+/* globals.css */
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+
+[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #ffffff;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 /* Add this to your global CSS or tailwind config */
 p {

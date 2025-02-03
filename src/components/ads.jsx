@@ -4,7 +4,7 @@ export  const  AdComponent = () => {
   return (
       <iframe
         data-aa="2378898"
-        src="//acceptable.a-ads.com/2378898"
+        src="//ad.a-ads.com/2379448?size=728x90"
         style={{
           border: '0px',
           padding: '0',

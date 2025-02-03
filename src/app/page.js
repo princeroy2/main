@@ -41,7 +41,7 @@ export default async function Main() {
       ))}
        
        <div className="bg-[#eee9e9] w-full mt-0 h-[190px]">
-      <AdComponent/>
+   
     </div>
  <Script 
         strategy="afterInteractive" 
@@ -57,7 +57,7 @@ export default async function Main() {
            
           </div>
           <div className="mb-5 max-md:px-9">
-<AdIframe/>
+
             <h1 className="mt-6 text-start ml-5 mb-0 font-semibold text-lg">Top News</h1>
             <TopNews serverData={Apidatatopnews} />
             <BlogCard serverData={apidata2} />

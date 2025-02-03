@@ -41,7 +41,7 @@ export default function Slider({ serverData }) {
         ))}
       </ol>
 
-      <div className="carousel-inner relative overflow-hidden">
+      <div className="carousel-inner relative overflow-hidden ">
         {serverData1?.map((image, index) => (
           <div
             key={index}

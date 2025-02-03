@@ -136,12 +136,12 @@ export default async function DiscriptionPage({ params }) {
 
   return (
     <>
-      <div>
+  
         <div className="bg-[#eee9e9] w-full mt-2 h-[200px]"></div>
         <hr className="border-t-2 border-gray-300 mx-8 mt-3" />
 
-        <div className="w-full sm:w-[90%] lg:w-[90%] mx-auto px-4 mb-12">
-          <div className="grid grid-cols-1 sm:grid-cols-1 px-5 md:grid-cols-[4fr_2fr] sm:gap-6 md:gap-10 gap-6 space-x">
+        <div className="w-full sm:w-[100%] lg:w-[90%] mx-auto max-sm:px-0 px-4 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-1 px-5 md:grid-cols-[4fr_2fr] sm:gap-6 md:gap-10 gap-6">
             <div>
               <h1 className="text-[#2f3c42] text-2xl sm:text-3xl md:text-[30px] font-bold mt-7">
                 {dataapi.title}
@@ -162,14 +162,12 @@ export default async function DiscriptionPage({ params }) {
            {
   // Loop over the range from 1 to 5
   Array.from({ length: 5 }, (_, index) => (
-    <div key={index}>
+    <div key={index} className="flex flex-col">
    
     <h1 className='font-bold text-[24px] mt-5'>     {dataapi[`heading${index + 1}`]}
 </h1>
-    <p
-      key={index}
-      className="mt-6 leading-[2rem] font-semibold max-md:text-[18px] flex overflow-hidden text-[#37474f] tracking-[0.08rem] mb-4"
-    >
+<p key={index} className="text mt-6 font-serif max-md:text-[18px] leading-[3rem] text-[#37474f] tracking-[0.08rem] break-words overflow-wrap-break-word whitespace-pre-line">
+
       {dataapi[`description${index + 1}`]}
     </p>
     </div>
@@ -204,7 +202,7 @@ export default async function DiscriptionPage({ params }) {
             </div>
           </div>
         </div>
-      </div>
+     
     </>
   );
 }
