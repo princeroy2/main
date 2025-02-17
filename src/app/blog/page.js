@@ -3,13 +3,6 @@ import MainNews from "@/components/main_news";
 import TopNews from "@/components/top_news";
 import { apiCall } from "../apicallhook/Newsapi";
 import { ArticleapiCall } from "../apicallhook/ArticleApi";
-
-
-
-
-
-
-// SEO Metadata generation for each article
 export async function generateMetadata() {
     const apidata2 = await ArticleapiCall();
 
@@ -67,9 +60,9 @@ export async function generateMetadata() {
 export default async function Main() {
   const currentDate = new Date().toISOString(); // Current date in ISO format
 
-  const Apidata = await apiCall();
+  const Apidata1= await apiCall(1);
+  const Apidata=Apidata1.results
   const apidata2 = await ArticleapiCall();
-
 
   return (
     <>

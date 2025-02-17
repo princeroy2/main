@@ -3,7 +3,7 @@ export const ArticleapiCall = async () => {
   const res = await fetch('https://nativeapi.site/api/Articles/', {
     // Set cache behavior to cache the data and revalidate after 5 minutes
     next: {
-      revalidate: 86400, // Revalidate every 5 minutes (300 seconds)
+      revalidate: 400, // Revalidate every 5 minutes (300 seconds)
     },
   });
 

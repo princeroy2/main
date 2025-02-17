@@ -11,6 +11,16 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      screens: {
+        'sm': '720px',   // Custom breakpoint for 250px
+         // Custom breakpoint for 350px
+      },
+      fontFamily: {
+        mono: ['"Space Mono"', 'monospace'],  // Add Space Mono as a custom font
+        inter: ['Inter', 'sans-serif'],
+
+      },
+     
     },
   },
   plugins: [],

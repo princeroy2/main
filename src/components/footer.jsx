@@ -1,63 +1,327 @@
-import Link from "next/link";
+'use client'
+import { useState, useEffect } from "react";
 import DownloadBadges from "./GooglePlayButton";
+import Image from "next/image";
+const icon = '/images/ii.png';
 
 const Footer = () => {
+  const [isServicesOpen, setServicesOpen] = useState(false);
+  const [isPlatformsOpen, setPlatformsOpen] = useState(false);
+  const [isCompanyOpen, setCompanyOpen] = useState(false);
+  const [isAdditionalOpen, setAdditionalOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
+
   return (
-  <>
-  <footer className="bg-gray-900 text-white pt-12 pb-8 px-4">
-    <div className="mx-auto px-4 container overflow-hidden flex flex-col lg:flex-row justify-between">
-        <a href="/" className="block mr-4 w-1/3">
-            <h1 className="text-white">Never miss an update! Download our app for breaking news and more</h1>
+    <footer className="font-sans tracking-wide bg-gray-900 px-20 max-sm:px-15 pt-12 pb-0">
+      <div className="flex flex-wrap justify-between gap-10">
+        <div className="max-w-md max-sm:max-w-lg">
+          <a href="javascript:void(0)">
+            <Image
+              src={icon}
+              alt="Cryptonews"
+              width={200}
+              height={16}
+            />
+          </a>
+          <div className="mt-2">
+            <p className="text-[#b3c5ce] leading-relaxed text-sm ">
+              Download App Stay up to date with the latest cryptocurrency news, blockchain updates, market trends, and expert analysis on CryptoNews
+            </p>
+            <DownloadBadges name={'justify-start'}/>
+          </div>
+          <ul className="mt-2 flex space-x-5">
 
-           <DownloadBadges/>
-        </a>
-        <div className="w-2/3 block sm:flex text-sm mt-6 lg:mt-0">
-            <ul className="text-gray-700 list-none p-0 font-thin flex flex-col text-left w-full">
-                <li className="inline-block py-2 px-3 text-white uppercase font-medium tracking-wide">News</li>
-                <li><Link href="/news/all" className="inline-block py-2 px-3 text-gray-500 hover:text-white no-underline">Headline</Link></li>
-                <li><Link href="/news/bitcoin" className="inline-block py-2 px-3 text-gray-500 hover:text-white no-underline">Bitcoin</Link></li>
-                <li><Link href="/news/ethereum" className="inline-block py-2 px-3 text-gray-500 hover:text-white no-underline">Ether</Link></li>
-                <li><Link href="/news/blockchain" className="inline-block py-2 px-3 text-gray-500 hover:text-white no-underline">Blockchain</Link></li>
-            </ul>
-            <ul className="text-gray-700 list-none p-0 font-thin flex flex-col text-left w-full">
-                <li className="inline-block py-2 px-3 text-white uppercase font-medium tracking-wide">Blogs</li>
-                <li><Link href="/blog" className="inline-block py-2 px-3 text-gray-500 hover:text-white no-underline">New Blog</Link>
-                </li>
-                <li><Link href="/blog" className="inline-block py-2 px-3 text-gray-500 hover:text-white no-underline">All Blog</Link></li>
-                <li><Link href="/ico" className="inline-block py-2 px-3 text-gray-500 hover:text-white no-underline">ICO</Link></li>
-
-            </ul>
-            <ul className="text-gray-700 list-none p-0 font-thin flex flex-col text-left w-full">
-                <li className="inline-block py-2 px-3 text-white uppercase font-medium tracking-wide">About us</li>
-                <li><Link href="/contact-us" className="inline-block py-2 px-3 text-gray-500 hover:text-white no-underline">Contact us</Link></li>
-                <li><Link href="/term-condition" className="inline-block py-2 px-3 text-gray-500 hover:text-white no-underline">Terms of Service</Link></li>
-                <li><Link href="/privacy-policy" className="inline-block py-2 px-3 text-gray-500 hover:text-white no-underline">Privacy Policy</Link></li>
-                <li><Link href="/about-us" className="inline-block py-2 px-3 text-gray-500 hover:text-white no-underline">About us</Link></li>
-             
-            </ul>
-            <div className="text-gray-700 flex flex-col w-full">
-                <div className="inline-block py-2 px-3 text-white uppercase font-medium tracking-wide">Follow Us</div>
-                <div className="flex pl-4 justify-start mt-2">
-                    <a className=" flex items-center text-gray-300 hover:text-white mr-6 no-underline" href="#">
-                        <svg viewBox="0 0 24 24" className="fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M23.998 12c0-6.628-5.372-12-11.999-12C5.372 0 0 5.372 0 12c0 5.988 4.388 10.952 10.124 11.852v-8.384H7.078v-3.469h3.046V9.356c0-3.008 1.792-4.669 4.532-4.669 1.313 0 2.686.234 2.686.234v2.953H15.83c-1.49 0-1.955.925-1.955 1.874V12h3.328l-.532 3.469h-2.796v8.384c5.736-.9 10.124-5.864 10.124-11.853z" /></svg>
-                    </a>
-                    <a className="flex items-center text-gray-300 hover:text-white mr-6 no-underline" href="#">
-                        <svg viewBox="0 0 24 24" className="fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M23.954 4.569a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.691 8.094 4.066 6.13 1.64 3.161a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.061a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z" /></svg>
-                    </a>
-                    <a className="flex items-center text-gray-300 hover:text-white no-underline" href="#">
-                        <svg viewBox="0 0 24 24" className="fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg>
-                    </a>
-                </div>
-            </div>
+            <li>
+              <a href="javascript:void(0)">
+               <Image
+                      src="svg/facebook.svg" // Access SVG from public/svg
+                      width={30}
+                      height={20}
+                      alt="Google Play"
+                      className='mt-2 h-full'
+                    />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+              <Image
+                      src="svg/twitter.svg" // Access SVG from public/svg
+                      width={30}
+                      height={20}
+                      alt="Google Play"
+                      className='mt-2 h-full'
+                    />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+              <Image
+                      src="svg/whatsapp.svg" // Access SVG from public/svg
+                      width={30}
+                      height={20}
+                      alt="Google Play"
+                      className='mt-2 h-full'
+                    />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+              <Image
+                      src="svg/instagram.svg" // Access SVG from public/svg
+                      width={30}
+                      height={20}
+                      alt="Google Play"
+                      className='mt-2 h-full'
+                    />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+              <Image
+                      src="svg/telegram.svg" // Access SVG from public/svg
+                      width={30}
+                      height={20}
+                      alt="Google Play"
+                      className='mt-2 h-full'
+                    />
+              </a>
+            </li>
+          </ul>
         </div>
-    </div>
-    <div className=" mt-4 pt-6 text-gray-600 border-t border-gray-800 text-center"> © 2025 crptonews. All rights reserved.</div>
-</footer>
-  </>
-    
+
+        {/* Services */}
+        <div className="max-lg:min-w-[140px]">
+          <h4
+            className="text-[white] font-semibold text-base relative max-sm:cursor-pointer"
+            onClick={() => setServicesOpen(!isServicesOpen)}
+          >
+            News
+            {isMobile && (
+              <span className="absolute right-0 text-xl ">
+                {
+                isAdditionalOpen?   
+
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="28px" fill="#EEE40A">
+                  <path d="M200-440v-80h560v80H200Z"/>
+                </svg>
+                :
+                <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="24px" fill="#EEE40A">
+                  <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/>
+                </svg>
+         }
+          </span>
+            )}
+          </h4>
+
+          {(isMobile ? isServicesOpen : true) && (
+            <ul className="mt-6 space-y-4">
+              <li>
+                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                  Latest News
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                Bitcoin
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                  Defi
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                  NFT
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                Ethereum
+                </a>
+              </li>
+            </ul>
+          )}
+        </div>
+
+        {/* Platforms */}
+        <div className="max-lg:min-w-[140px]">
+          <h4
+            className="text-[white]  font-semibold text-base relative max-sm:cursor-pointer"
+            onClick={() => setPlatformsOpen(!isPlatformsOpen)}
+          >
+            Editorial
+            {isMobile && (
+              <span className="absolute right-0 text-xl ">
+                {
+                isAdditionalOpen?   
+
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="28px" fill="#EEE40A">
+                  <path d="M200-440v-80h560v80H200Z"/>
+                </svg>
+                :
+                <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="24px" fill="#EEE40A">
+                  <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/>
+                </svg>
+         }
+          </span>
+            )}
+          </h4>
+          {(isMobile ? isPlatformsOpen : true) && (
+            <ul className="space-y-4 mt-6">
+              <li>
+                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                All articles
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                  News
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                  Ico Token
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                  Upcoming Ico
+                </a>
+              </li>
+            </ul>
+          )}
+        </div>
+
+        {/* Company */}
+        <div className="max-lg:min-w-[140px]">
+          <h4
+            className="text-[white]  font-semibold text-base relative max-sm:cursor-pointer"
+            onClick={() => setCompanyOpen(!isCompanyOpen)}
+          >
+            About us
+            {isMobile && (
+              <span className="absolute right-0 text-xl ">
+                {
+                isAdditionalOpen?   
+
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="28px" fill="#EEE40A">
+                  <path d="M200-440v-80h560v80H200Z"/>
+                </svg>
+                :
+                <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="24px" fill="#EEE40A">
+                  <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/>
+                </svg>
+         }
+          </span>
+            )}
+          </h4>
+          {(isMobile ? isCompanyOpen : true) && (
+            <ul className="space-y-4 mt-6">
+              <li>
+                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                About app
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                  Contact
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                Glossary
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                Advertising
+                </a>
+              </li>
+            </ul>
+          )}
+        </div>
+
+        {/* Additional */}
+        <div className="max-lg:min-w-[140px]">
+          <h4
+            className="text-[white]  font-semibold text-base relative max-sm:cursor-pointer"
+            onClick={() => setAdditionalOpen(!isAdditionalOpen)}
+          >
+            Policies
+           
+             {isMobile && (
+              <span className="absolute right-0 text-xl ">
+                {
+                isAdditionalOpen?   
+
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="28px" fill="#EEE40A">
+                  <path d="M200-440v-80h560v80H200Z"/>
+                </svg>
+                :
+                <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="24px" fill="#EEE40A">
+                  <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/>
+                </svg>
+         }
+          </span>
+            )}
+          </h4>
+          {(isMobile ? isAdditionalOpen : true) && (
+            <ul className="space-y-4 mt-6">
+              <li>
+                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                Privacy policy
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                For copyright holders
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                  Sitemap
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                  Contact
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                  News
+                </a>
+              </li>
+            </ul>
+          )}
+        </div>
+      </div>
+
+    <p className="text-sm text-[#b3c5ce] mt-7 text-center ">
+      &copy; {new Date().getFullYear()} CrptoNews
+    </p>
+  
+
+    </footer>
   );
 };
 

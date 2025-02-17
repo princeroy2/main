@@ -47,3 +47,70 @@ body {
   
 }
 
+/* Inside your global CSS (e.g., globals.css or any custom CSS file) */
+@media (min-width: 250px) and (max-width: 350px) {
+  .custom-range1 {
+    gap:0;
+    width: 60px;              /* Example: Change text color */
+  }
+  .custom-range2 {
+    gap:0;
+    width: 60px;              /* Example: Change text color */
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1081px) {
+  .custom-ran1 {
+    gap:0;
+    width: 80px;              /* Example: Change text color */
+  }
+  .custom-ran2 {
+    gap:0;
+    width: 90px;              /* Example: Change text color */
+  }
+}
+.goog-te-banner {
+  visibility: hidden !important;
+  position: absolute !important;
+  top: -9999px !important; /* Move it off-screen */
+}
+
+.goog-te-combo {
+  opacity: 0;
+  position: absolute;
+}
+
+iframe.skiptranslate {
+  display: none !important;
+}
+.colored-list_crtpocoin li {
+  list-style-type: disc;
+  color: gray; /* You can change this to any color you want */
+}
+#goog-gt-vt{
+  display: none !important;
+}
+.VIpgJd-yAWNEb-hvhgNd{
+  display: none !important;
+}
+#goog-gt-tt{
+  display: none !important;
+
+}
+/* Disable text selection globally or on specific elements */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* Apply this to the Google Translate iframe or container */
+#google_translate_element iframe {
+  pointer-events: none;
+}
+/* Disable hover and interaction for Google Translate elements */
+.goog-te-combo,
+.goog-te-v2-container,
+.goog-te-v2-menu-frame {
+  pointer-events: none;
+}

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 const TopNews = ({serverData}) => {
   const formatTitleForUrl = (title) => {
@@ -10,19 +11,19 @@ const TopNews = ({serverData}) => {
 
   const visibleItems=6
   return (
-    <div className='w-full'>
+    <div className='w-full mt-6 '>
+
     {serverData?.slice(0, visibleItems).map((itmes,index)=>{
       return (
         <Link href={`/${formatTitleForUrl(itmes?.title)}/${itmes?.id}`} key={index}>
   <div className='w-full mt-2'>
-  <div className='flex flex-row max-md:flex-col  max-lg:flex-row gap-5 p-2 hover:bg-white hover:shadow-md'>
-  <img src={itmes?.image} alt="" className='md:w-1/3   rounded-lg' />
-  <div className='flex flex-col gap-2'>
-    <p className='md:text-[12px] max-md:text-[16px] text-[8px] max-sm:font-bold font-bold text-[#37474f] '>{itmes?.title}</p>
-
+  <div className='flex max-sm:flex-col flex-row gap-3 p-2 hover:bg-white hover:shadow-md'>
+  <Image src={itmes?.image} width={100} height={30} alt="" className='rounded-lg h-20 max-sm:h-full max-sm:w-full' />
+  <div className='flex flex-col '>
+    <p className=' line-clamp-2 max-sm:text-[16px] max-sm:font-bold md:text-[16px] max-lg:font-bold lg:text-[12px] lg:font-semibold   text-[#37474f] '>{itmes?.title}</p>
     <div className='flex flex-row gap-5'>
-    <span className='text-[12px] text-[#37474f] '>{itmes?.domain}</span>
-    <p className='text-[12px] text-[#37474f] '>{itmes?.time}</p>
+    <span className='text-[12px] text-[#37474f] font-serif'>{itmes?.domain}</span>
+    <p className='text-[12px] text-[#37474f] lg:line-clamp-1 font-serif'>{itmes?.time}</p>
   </div>
   </div>
   </div>

@@ -1,6 +1,7 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
-const MainNews = ({ serverData, visibleItems, handleShowMore }) => {
+const MainNews = ({ serverData, visibleItems, handleShowMore ,total_pages,currentPage}) => {
   // Function to format the title for the URL
   const formatTitleForUrl = (title) => {
     return title
@@ -15,19 +16,20 @@ const MainNews = ({ serverData, visibleItems, handleShowMore }) => {
       {/* Map through the visible items */}
       {serverData.slice(0, visibleItems).map((newsItem, index) => (
         <Link href={`/${formatTitleForUrl(newsItem?.title)}/${newsItem?.id}`} key={index}>
-          <div className="flex flex-row max-md:flex-col gap-6 p-5 h-full hover:shadow-lg border-b border-gray-200">
-            <img
+          <div className="flex flex-row max-sm:flex-col  gap-6 py-3 px-2  max-sm:shadow-md hover:shadow-lg border-b border-gray-200">
+            <Image
               src={newsItem?.image || newsItem?.image_main}
               alt={newsItem?.title}
-              className="w-full h-full md:w-1/3 object-cover rounded-lg"
+              className="object-cover max-sm:w-full rounded-lg"
+              height={220}
+              width={220}
+             
+
             />
-            <div className="flex flex-col">
-              <h1 className="text-lg font-semibold text-[#37474f] max-sm:font-semibold md:text-[16px]">{newsItem?.title}</h1>
-              <span className="text-gray-600 max-sm:text-[10px] mt-2 font-bold md:text-[11px] text-ellipsis overflow-hidden line-clamp-2">
-                {newsItem?.description}
-              </span>
+            <div className="flex flex-col justify-center gap-3">
+              <h1 className="text-lg font-semibold text-[#37474f] max-sm:text-[16px] max-sm:font-bold md:text-[16px]">{newsItem?.title}</h1>
               <div className="flex gap-4 text-sm text-[#37474f] mt-2">
-                <span className="text-gray-600 text-[12px] mt-5">{newsItem?.domain}</span>
+                <span className="text-gray-600 font-serif text-[12px] mt-5">{newsItem?.domain}</span>
                 <span className="text-gray-600 text-[12px] mt-5">{newsItem?.time}</span>
               </div>
             </div>
@@ -36,11 +38,11 @@ const MainNews = ({ serverData, visibleItems, handleShowMore }) => {
       ))}
 
       {/* Show More button */}
-      {visibleItems < serverData.length && (
+      {total_pages>currentPage && (
         <div className="flex justify-center mt-6">
           <button
             onClick={handleShowMore}
-            className="px-6 py-3 mb-10 bg-gray-900 text-white rounded hover:bg-gray-600"
+            className="px-6 py-3 mb-10 max-sm:mb-0 bg-gray-900 text-[#EEE40A] rounded hover:bg-gray-600"
           >
             Show More
           </button>

@@ -26,7 +26,7 @@ export default function Ico({ serverData, visibleItems, handleShowMore }) {
 
           <div className="overflow-x-auto"> {/* Make table scrollable on small screens */}
             <table className="min-w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-5 table-auto">
-              <thead className="text-xs font-bold text-white uppercase bg-[#627fec] dark:bg-gray-700 dark:text-gray-400">
+              <thead className="text-xs font-bold text-black uppercase bg-[#aca643]  dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                   <th scope="col" className="px-4 py-3 w-[30%]">
                     ICO NAME
@@ -90,7 +90,7 @@ export default function Ico({ serverData, visibleItems, handleShowMore }) {
             <div className="flex justify-center items-center mt-6">
               <button
                 onClick={handleShowMore}
-                className="px-6 max-md:px-2 max-md:text-[10px] max-md:py-1 py-3 mb-10 bg-gray-900 text-white rounded hover:bg-gray-600"
+                className="px-6 max-md:px-2 max-md:text-[10px] max-md:py-1 py-3 mb-10 bg-gray-900 text-[#EEE40A] rounded hover:bg-gray-600"
               >
                 Show More
               </button>

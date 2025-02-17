@@ -21,17 +21,16 @@ const News_TypeButton = () => {
 
   // Derive the active link directly from the pathname
   const pathPart = pathname.split('/')[2]; // Get part after '/news/'
-  console.log(pathPart)
   const activeLink = pathPart || 'all'; // Default to 'All' if path is empty or invalid
 
   return (
 
-    <ul className="flex flex-nowrap max-md:justify-start justify-center pb-4 items-center mx-auto max-lg:mx-auto mt-5 space-x-5 max-md:space-x-2 overflow-x-auto max-md:px-5">
+    <ul className="flex font-inter notranslate skiptranslate flex-nowrap max-md:justify-start max-lg:px-5  justify-center pb-2 items-center mx-auto max-lg:justify-start mt-5 space-x-2  overflow-x-auto">
 
       {blockchainData.map((item) => (
         <li
           key={item.id}
-          className={`hover:bg-gray-400 ${activeLink === item.name.toLowerCase() ? 'bg-gray-900 text-white' : 'bg-[#fffdf6] text-gray-600'} text-[#b0bec5] hover:text-white px-3 max-md:text-[12px] max-lg:text-[12px] text-[12px] font-bold rounded-[8px] py-[3px] border border-solid border-[#b4c5ce]`}
+          className={`hover:bg-gray-400 ${activeLink === item.name.toLowerCase() ? 'bg-[#EEE40A] text-black border-[#EEE40A]' : 'bg-[#fffdf6] text-[#b0bec5]'} text-[#b0bec5] hover:text-white px-6 max-md:text-[12px] max-lg:text-[12px] text-[12px] font-bold rounded-[8px] py-[3px] border border-solid border-[#b4c5ce]`}
         >
           <Link
             href={`/news/${item.name.toLowerCase() === 'all' ? 'all' : item.name.toLowerCase()}`}

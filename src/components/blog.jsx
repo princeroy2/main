@@ -14,7 +14,7 @@ const BlogCard = async () => {
   const visibleItems=6
   return (
     <>
-               <h1 className="text-start mt-20 ml-5 mb-0 font-semibold text-lg">Read Article</h1>
+               <h1 className="text-start mt-20 ml-5 mb-0 font-semibold text-lg max-sm:hidden">Read Article</h1>
                <div className='w-full'>
     {serverData?.slice(0, visibleItems).map((itmes,index)=>{
       return (
