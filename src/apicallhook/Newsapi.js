@@ -1,8 +1,8 @@
 export const apiCall = async (page=1) => {
   const res = await fetch(`https://nativeapi.site/api/getdata/?page=${page}`, {
-    next: {
-      revalidate: 300, // Revalidate every 5 minutes (300 seconds)
-    },
+    // next: {
+    //   revalidate: 300, // Revalidate every 5 minutes (300 seconds)
+    // },
   });
 
   if (!res.ok) {

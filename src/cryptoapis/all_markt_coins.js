@@ -2,7 +2,12 @@
 const MarketCoinsData = async (page=1) => {
     try {
       // Fetch the news items using the given news type (like 'bitcoin', 'dogecoin', etc.)
-      const response = await fetch(`https://nativeapi.site/api/get_All_market_coins?page=${page}`)
+      const response = await fetch(`https://nativeapi.site/api/get_All_market_coins?page=${page}`,{
+        // Set cache behavior to cache the data and revalidate after 5 minutes
+        next: {
+          revalidate: 400, // Revalidate every 5 minutes (300 seconds)
+        },
+      })
       if (!response.ok) {
         const errorText = await response.text();
         console.error('Error response:', errorText);

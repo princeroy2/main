@@ -46,10 +46,10 @@ export default function Policies() {
     <>
       <div className="bg-gray-100 py-12">
         <div className="container mx-auto px-4 md:px-16">
-          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">CryptoNews Policies</h1>
+          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">CrptoNews Policies</h1>
 
           <p className="text-lg text-gray-700 mb-6">
-            Welcome to CryptoNews. By using our website, you agree to the policies outlined below. Please read the following policies carefully. 
+            Welcome to CrptoNews. By using our website, you agree to the policies outlined below. Please read the following policies carefully. 
           </p>
 
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">1. Privacy Policy</h2>

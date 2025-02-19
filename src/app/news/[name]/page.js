@@ -1,140 +1,253 @@
 import Slider from "@/components/slider";
-import { apiCall } from "@/app/apicallhook/Newsapi";
+import { apiCall } from "@/apicallhook/Newsapi";
 import TopNews from "@/components/top_news";
 import News_TypeButton from "@/components/newstypes_Button";
 import MainNews2 from "@/components/main_news2";
-import NewstypeApi from "@/app/apicallhook/newstype";
+import NewstypeApi from "@/apicallhook/newstype";
 import NewsTypedata from "@/components/newstypedata";
+import Head from "next/head";
+
+// Static content for each blockchain type
+const staticContent = {
+  all: {
+    title: 'All Crypto News - Latest Updates and Market Trends',
+    description: 'Get the latest cryptocurrency news, price predictions, market trends, and insights from all blockchain sectors.',
+    keywords: 'cryptocurrency news, Bitcoin, Ethereum, DeFi, NFTs, Altcoin, crypto analysis, blockchain news',
+    specificImage: '/images/all.jpg',
+    canonicalUrl: 'https://crptonews.com/all',
+    author: 'Crypto News Team',
+    publisher: 'Crypto News',
+    datePublished: '2025-02-20',
+  },
+  bitcoin: {
+    title: 'Bitcoin - Latest News, Analysis, and Price Predictions',
+    description: 'Get the latest Bitcoin news, price predictions, BTC analysis, and market insights.',
+    keywords: 'Bitcoin, BTC news, Bitcoin price prediction, BTC analysis, Bitcoin news, cryptocurrency, blockchain',
+    specificImage: '/images/bitcoin.jpg',
+    canonicalUrl: 'https://crptonews.com/bitcoin',
+    author: 'Crypto News Team',
+    publisher: 'Crypto News',
+    datePublished: '2025-02-20',
+  },
+  ethereum: {
+    title: 'Ethereum - Latest Updates, News, and Price Predictions',
+    description: 'Stay informed with the latest Ethereum news, ETH price analysis, and updates on Ethereum 2.0.',
+    keywords: 'Ethereum, ETH news, Ethereum price prediction, ETH analysis, blockchain, cryptocurrency',
+    specificImage: '/images/ethereum.jpg',
+    canonicalUrl: 'https://crptonews.com/ethereum',
+    author: 'Crypto News Team',
+    publisher: 'Crypto News',
+    datePublished: '2025-02-20',
+  },
+  blockchain: {
+    title: 'Blockchain - Latest News, Trends, and Insights',
+    description: 'Explore the latest news and developments in blockchain technology and its applications in various industries.',
+    keywords: 'blockchain, blockchain news, blockchain technology, decentralized, crypto blockchain, blockchain insights',
+    specificImage: '/images/blockchain.jpg',
+    canonicalUrl: 'https://crptonews.com/blockchain',
+    author: 'Crypto News Team',
+    publisher: 'Crypto News',
+    datePublished: '2025-02-20',
+  },
+  defi: {
+    title: 'DeFi - Latest Decentralized Finance News and Price Updates',
+    description: 'Explore the world of Decentralized Finance (DeFi) with live prices, market trends, DeFi coins, and upcoming projects.',
+    keywords: 'DeFi, decentralized finance, DeFi news, DeFi price prediction, cryptocurrency, DeFi projects',
+    specificImage: '/images/defi.jpg',
+    canonicalUrl: 'https://crptonews.com/defi',
+    author: 'Crypto News Team',
+    publisher: 'Crypto News',
+    datePublished: '2025-02-20',
+  },
+  nfts: {
+    title: 'NFTs - Latest News and Market Trends for Non-Fungible Tokens',
+    description: 'Stay updated with the latest news and trends in the NFT market, including new NFT projects and top NFT artists.',
+    keywords: 'NFTs, non-fungible tokens, NFT news, NFT marketplace, NFT trends, NFT prices',
+    specificImage: '/images/nfts.jpg',
+    canonicalUrl: 'https://crptonews.com/nfts',
+    author: 'Crypto News Team',
+    publisher: 'Crypto News',
+    datePublished: '2025-02-20',
+  },
+  cryptocurrency: {
+    title: 'Cryptocurrency - Latest News and Price Predictions',
+    description: 'Stay up to date with the latest cryptocurrency news, price predictions, and analysis from various blockchain projects.',
+    keywords: 'cryptocurrency, crypto news, cryptocurrency analysis, price predictions, blockchain news',
+    specificImage: '/images/cryptocurrency.jpg',
+    canonicalUrl: 'https://crptonews.com/cryptocurrency',
+    author: 'Crypto News Team',
+    publisher: 'Crypto News',
+    datePublished: '2025-02-20',
+  },
+  altcoin: {
+    title: 'Altcoin - Latest News, Trends, and Price Predictions',
+    description: 'Get the latest altcoin news, price predictions, and analysis of emerging altcoins in the crypto market.',
+    keywords: 'altcoin, altcoin news, cryptocurrency, altcoin price prediction, market analysis, crypto news',
+    specificImage: '/images/altcoin.jpg',
+    canonicalUrl: 'https://crptonews.com/altcoin',
+    author: 'Crypto News Team',
+    publisher: 'Crypto News',
+    datePublished: '2025-02-20',
+  },
+  staking: {
+    title: 'Staking - News, Rewards, and Staking Opportunities in Crypto',
+    description: 'Discover the latest news and trends in staking, including staking rewards and the best opportunities in the crypto space.',
+    keywords: 'staking, crypto staking, staking rewards, cryptocurrency, DeFi staking, staking opportunities',
+    specificImage: '/images/staking.jpg',
+    canonicalUrl: 'https://crptonews.com/staking',
+    author: 'Crypto News Team',
+    publisher: 'Crypto News',
+    datePublished: '2025-02-20',
+  },
+  dao: {
+    title: 'DAO - Decentralized Autonomous Organizations News and Insights',
+    description: 'Explore the latest developments in Decentralized Autonomous Organizations (DAOs), governance, and their role in the crypto ecosystem.',
+    keywords: 'DAO, decentralized autonomous organizations, crypto governance, blockchain governance, DAO news',
+    specificImage: '/images/dao.jpg',
+    canonicalUrl: 'https://crptonews.com/dao',
+    author: 'Crypto News Team',
+    publisher: 'Crypto News',
+    datePublished: '2025-02-20',
+  },
+  mining: {
+    title: 'Mining - Latest News, Insights, and Cryptocurrency Mining Trends',
+    description: 'Stay up to date with the latest news and trends in cryptocurrency mining, mining hardware, and mining pools.',
+    keywords: 'mining, cryptocurrency mining, crypto mining news, mining hardware, mining pools, crypto mining insights',
+    specificImage: '/images/mining.jpg',
+    canonicalUrl: 'https://crptonews.com/mining',
+    author: 'Crypto News Team',
+    publisher: 'Crypto News',
+    datePublished: '2025-02-20',
+  },
+};
+
+// Dynamically generate metadata based on 'news_name' (e.g., Bitcoin, DeFi, etc.)
+export async function generateMetadata({ params }) {
+  const news_name = params.name.toLowerCase(); // Extract dynamic parameter 'name' from URL and make it lowercase
+
+  // Check if the category exists in the staticContent
+  const categoryContent = staticContent[news_name];
+
+  // If the category is found, generate the metadata
+  if (categoryContent) {
+    return {
+      title: categoryContent.title,
+      description: categoryContent.description,
+      keywords: categoryContent.keywords,
+      openGraph: {
+        title: categoryContent.title,
+        description: categoryContent.description,
+        image: categoryContent.specificImage,
+        url: `https://crptonews.com/${news_name}`,
+        type: 'website',
+        locale: 'en_US',
+        site_name: 'Crypto News',
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: categoryContent.title,
+        description: categoryContent.description,
+        image: categoryContent.specificImage,
+      },
+      robots: 'index, follow',
+      canonical: categoryContent.canonicalUrl, // Adding the canonical URL
+      schema: {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: categoryContent.title,
+        description: categoryContent.description,
+        image: categoryContent.specificImage,
+        author: {
+          "@type": "Organization",
+          name: categoryContent.author,
+        },
+        publisher: {
+          "@type": "Organization",
+          name: categoryContent.publisher,
+        },
+        datePublished: categoryContent.datePublished,
+        dateModified: categoryContent.datePublished,
+        mainEntityOfPage: categoryContent.canonicalUrl,
+      },
+    };
+  }
+
+  // If no category found (e.g., invalid name), return fallback metadata
+  return {
+    title: 'Crypto News - Latest Updates and Trends',
+    description: 'Stay updated with the latest news, price predictions, and trends in the cryptocurrency world.',
+    keywords: 'cryptocurrency news, market trends, Bitcoin, Ethereum, DeFi, NFTs, crypto analysis',
+    openGraph: {
+      title: 'Crypto News - Latest Updates and Trends',
+      description: 'Stay updated with the latest cryptocurrency news, price predictions, and market trends.',
+      image: '/images/default.jpg', // Default image URL
+      url: 'https://crptonews.com',
+      type: 'website',
+      locale: 'en_US',
+      site_name: 'Crypto News',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Crypto News - Latest Updates and Trends',
+      description: 'Get the latest news and insights in the cryptocurrency market.',
+      image: '/images/default.jpg', // Default image for Twitter card
+    },
+    robots: 'index, follow',
+    canonical: 'https://crptonews.com',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: 'Crypto News',
+      description: 'Get the latest cryptocurrency news, market trends, and price predictions.',
+      url: 'https://crptonews.com',
+    },
+  };
+}
 
 
-// // SEO Metadata generation for each article
-// export async function generateMetadata({ params }) {
-//   const name = params?.name; // Get the dynamic `name` parameter
-//   const Apidata = await apiCall(); // Fetch data from the API
-  
-//   // Filter the articles based on the name from the URL
-//   const filteredArticles = Apidata.filter(item =>
-//     item.title.toLowerCase().includes(name.toLowerCase())
-//   );
-
-//   const currentDate = new Date().toISOString(); // Current date for structured data
-
-//   // If no articles are found
-//   if (!filteredArticles.length) {
-//     return {
-//       title: `No News Found - CryptoNews`,
-//       description: `Sorry, we couldn't find news for ${name}.`,
-//       openGraph: {
-//         title: `No News Found - CryptoNews`,
-//         description: `Sorry, we couldn't find news for ${name}.`,
-//         image: "https://crptonews.com/images/logo.png",
-//         url: `https://crptonews.com/news/${name}`,
-//       },
-//       twitter: {
-//         card: "summary_large_image",
-//         title: `No News Found - CryptoNews`,
-//         description: `Sorry, we couldn't find news for ${name}.`,
-//         image: "https://crptonews.com/images/logo.png",
-//       },
-//       structuredData: {
-//         "@context": "https://schema.org",
-//         "@type": "NewsArticle",
-//         headline: `No News Found for ${name}`,
-//         description: `Sorry, we couldn't find news for ${name}.`,
-//         image: "/default-image.jpg",
-//         datePublished: currentDate,
-//         dateModified: currentDate,
-//         author: {
-//           "@type": "Person",
-//           name: "CryptoNews Team",
-//         },
-//         publisher: {
-//           "@type": "Organization",
-//           name: "CryptoNews",
-//           logo: {
-//             "@type": "ImageObject",
-//             url: "https://crptonews.com/images/logo.png", // Change this to your site's logo URL
-//           },
-//         },
-//         mainEntityOfPage: `https://crptonews.com/news/${name}`,
-//       },
-//     };
-//   }
-
-//   // Now we can map over filteredArticles to generate metadata for each
-//   const metadata = filteredArticles.map((article) => ({
-//     title: `${article.title} - CryptoNews`,
-//     description: article.description,
-//     openGraph: {
-//       title: `${article.title} - CryptoNews`,
-//       description: article.description,
-//       image: article.image || "https://crptonews.com/images/logo.png",
-//       url: `https://crptonews.com/news/${name}`,
-//       type: "article",
-//       locale: "en_US",
-//     },
-//     twitter: {
-//       card: "summary_large_image",
-//       title: `${article.title} - CryptoNews`,
-//       description: article.description,
-//       image: article.image || "https://crptonews.com/images/logo.png",
-//     },
-//     structuredData: {
-//       "@context": "https://schema.org",
-//       "@type": "NewsArticle",
-//       headline: article.title,
-//       description: article.description,
-//       image: article.image,
-//       datePublished: article.datePublished || currentDate,
-//       dateModified: article.dateModified || currentDate,
-//       author: {
-//         "@type": "Person",
-//         name: "CryptoNews Team",
-//       },
-//       publisher: {
-//         "@type": "Organization",
-//         name: "CryptoNews",
-//         logo: {
-//           "@type": "ImageObject",
-//           url: "https://crptonews.com/images/logo.png", // Change this to your site's logo URL
-//         },
-//       },
-//       mainEntityOfPage: `https://crptonews.com/news/${name}`,
-//     },
-//   }));
-
-//   // Return metadata for the first article, or adapt as needed
-//   return metadata[0]; // Change this if you need to generate for a different logic
-// }
-
-// The main page component that will display filtered articles based on 'name'
 export default async function Main({ params }) {
-  const news_name = await params.name; // Extract dynamic parameter 'name' from URL
-  const Apidata = await NewstypeApi(news_name,1); // Fetch your API data
-  const filteredArticles =Apidata.data.results
-  const current_page =Apidata.data.current_page
-  const total_pages =Apidata.data.total_pages
-
+  const news_name = params.name; // Extract dynamic parameter 'name' from URL
+  const Apidata = await NewstypeApi(news_name, 1); // Fetch API data for the selected category
+  const filteredArticles = Apidata.data.results;
+  const current_page = Apidata.data.current_page;
+  const total_pages = Apidata.data.total_pages;
 
   return (
     <>
-    <NewsTypedata news_name={news_name} serverData={filteredArticles} total_pages={total_pages} current_page={current_page}/>
+      <Head>
+        <title>{`Latest ${news_name.charAt(0).toUpperCase() + news_name.slice(1)} News | CryptoNews`}</title>
+        <meta name="description" content={`Stay up to date with the latest ${news_name} news, blockchain updates, and market trends.`} />
+        <meta property="og:title" content={`Latest ${news_name.charAt(0).toUpperCase() + news_name.slice(1)} News | CryptoNews`} />
+        <meta property="og:description" content={`Stay up to date with the latest ${news_name} news, blockchain updates, and market trends.`} />
+        <meta property="og:image" content="/default-image.jpg" />
+        <meta property="og:url" content={`https://crptonews.com/${news_name}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`Latest ${news_name.charAt(0).toUpperCase() + news_name.slice(1)} News | CryptoNews`} />
+        <meta name="twitter:description" content={`Stay up to date with the latest ${news_name} news, blockchain updates, and market trends.`} />
+        <meta name="twitter:image" content="/default-image.jpg" />
+      </Head>
+
+      {/* Display the category buttons */}
+      {/* <News_TypeButton news_name={news_name} /> */}
+
+      {/* Render the filtered articles */}
+      <NewsTypedata news_name={news_name} serverData={filteredArticles} total_pages={total_pages} current_page={current_page} />
+
+      {/* Section to display Top News */}
+      {/* <div className="mt-12">
+        <h1 className="text-center font-bold text-xl">Top News in {news_name.charAt(0).toUpperCase() + news_name.slice(1)}</h1>
+        <TopNews serverData={filteredArticles} />
+      </div> */}
+
     
     </>
   );
 }
 
-// Generate static paths dynamically for the articles
-// export async function generateStaticParams() {
-//   const Apidata = await apiCall(); // Fetch the data from API
-//   const paths = Apidata.map((item) => ({
-//     name: item.title.toLowerCase(), // Create dynamic paths based on article titles
-//   }));
+// Helper function to format title for the URL (if needed)
+function formatTitleForUrl(title) {
+  return title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]/g, '');
+}
 
-//   return paths.map((item) => ({
-//     params: { name: item.name },
-//   }));
-// }
-
-// // Enable ISR: Regenerate the page every 5 minutes (300 seconds)
+// Optionally, use ISR to regenerate the page every 5 minutes
 // export const revalidate = 300; // Revalidate every 5 minutes

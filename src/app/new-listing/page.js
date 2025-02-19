@@ -3,24 +3,107 @@ import Image from 'next/image'
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import Head from 'next/head';
 import WhalesData2 from '@/cryptoapis/new_listing';
+export const metadata = {
+    title: "New Crypto Coins Listed on Binance, KuCoin, Bitget & OKEx | Track Latest Listings",
+    description: "Stay updated with the newest cryptocurrency listings on major exchanges such as Binance, KuCoin, Bitget, and OKEx. Discover new projects and market opportunities.",
+    keywords: "new crypto listings, Binance, KuCoin, Bitget, OKEx, new coins, crypto market, crypto listings, latest crypto coins, altcoins, crypto trends",
+    author: "CryptoListings Team",
+    robots: "index, follow",
+  
+    // Open Graph Tags
+    openGraph: {
+      title: "New Crypto Coins Listed on Binance, KuCoin, Bitget & OKEx",
+      description: "Track the latest new crypto coin listings on major exchanges like Binance, KuCoin, Bitget, and OKEx.",
+      image: "https://yourwebsite.com/images/new-crypto-listings.png", // Add an image relevant to crypto listings
+      url: "https://yourwebsite.com/new-crypto-listings",
+      type: "website",
+      imageAlt: "New Crypto Coin Listings",
+    },
+  
+    // Twitter Card Tags
+    twitter: {
+      card: "summary_large_image",
+      title: "New Crypto Coins Listed on Binance, KuCoin, Bitget & OKEx",
+      description: "Stay informed about the latest cryptocurrency coin listings on Binance, KuCoin, Bitget, and OKEx. Track new market opportunities.",
+      image: "https://yourwebsite.com/images/new-crypto-listings.png", // Add an image relevant to crypto listings
+      imageAlt: "New Crypto Coin Listings",
+    },
+  
+    // Charset Tag
+    charset: "UTF-8",
+  
+    canonical: "https://yourwebsite.com/new-crypto-listings",
+  
+    // Favicon Tag
+    favicon: "/favicon.ico",
+  
+    // Structured Data (JSON-LD)
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Website",
+      "url": "https://yourwebsite.com/new-crypto-listings",
+      "name": "Crypto Listings Tracker",
+      "description": "Track new crypto coin listings on Binance, KuCoin, Bitget, OKEx and other exchanges. Stay updated on the latest altcoins and market opportunities.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Crypto Listings Tracker",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://yourwebsite.com/images/logo.png",
+          "alt": "Crypto Listings Tracker Logo",
+        },
+      },
+      "sameAs": [
+        "https://twitter.com/cryptolistings",
+        "https://facebook.com/cryptolistings"
+      ],
+    }
+  };
 const Page1= async () => {
     const data = await WhalesData2()
     console.log(data)
 
     return (
+        <>
+        
+        <Head>
+      <meta charSet="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+      <meta name="description" content={metadata.description} />
+      <meta name="keywords" content={metadata.keywords} />
+      <meta name="author" content={metadata.author} />
+      <meta property="og:title" content={metadata.openGraph.title} />
+      <meta property="og:description" content={metadata.openGraph.description} />
+      <meta property="og:image" content={metadata.openGraph.image} />
+      <meta property="og:url" content={metadata.openGraph.url} />
+      <meta property="og:type" content={metadata.openGraph.type} />
+      <meta property="og:image:alt" content={metadata.openGraph.imageAlt} />
+      <meta name="twitter:card" content={metadata.twitter.card} />
+      <meta name="twitter:title" content={metadata.twitter.title} />
+      <meta name="twitter:description" content={metadata.twitter.description} />
+      <meta name="twitter:image" content={metadata.twitter.image} />
+      <meta name="twitter:image:alt" content={metadata.twitter.imageAlt} />
+      <link rel="canonical" href={metadata.canonical} />
+
+      {/* Structured Data (JSON-LD) */}
+      <script type="application/ld+json">
+        {JSON.stringify(metadata.structuredData)}
+      </script>
+    </Head> 
         <div className='bg-[#f0f2f4]  overflow-hidden'>
 
             <div className=' max-sm:mb-10  mt-5 py-2 max-sm:py-1 px-5 max-sm:px-4 sm:mx-32'>
                 <div className='flex flex-col gap-1 text-center items-center'>
-                    <Image
+                    {/* <Image
                         src='/images/whales.webp'
                         alt='logo.png'
                         height={200}
                         width={400}
                         className=' text-center align-middle'
-                    />
-                    <h1 className='font-sans text-[30px]'>Whales Trake Now</h1>
+                    /> */}
+                    <h1 className='font-sans text-[30px] text-[#8f8f2c] font-bold'>New Coin Listing</h1>
                     <h2 className='mt-2 text-[#212529] font-sans text-[18px] font-medium'>Track the latest whale movements, discover where the big players are moving</h2>
 
                 </div>
@@ -91,6 +174,7 @@ const Page1= async () => {
 
             </div>
         </div>
+        </>
     )
 }
 

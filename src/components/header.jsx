@@ -7,11 +7,7 @@ import { useState, useEffect } from 'react';
 import Lang_Btn_list4_mbl from './language_switch_mbl';
 import DownloadBadges2 from './googleplaybtn';
 
-// Icons
-const icon = '/images/logo1.png';
 const icon2 = '/images/ii.png';
-
-// Header component
 export const Header = () => {
   const pathname = usePathname(); // Get the current pathname
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu toggle
@@ -54,14 +50,14 @@ export const Header = () => {
   return (
     <div className="bg-[#111827] w-full h-16">
       <div className="mx-11 flex flex-row max-sm:justify-between  sm:gap-[20%] items-center h-16">
-        {/* Logo */}
+
         <div className="flex flex-row  items-center">
           <Link href="/">
             <Image src={icon2} alt="Cryptonews" width={200} height={16} />
           </Link>
         </div>
 
-        {/* Desktop navigation */}
+
         <div className="hidden md:flex flex-row items-center justify-start gap-6 text-white">
           <Link href="/">
             <div className={`cursor-pointer ${getActiveLink('/')}`}>News</div>
@@ -77,7 +73,6 @@ export const Header = () => {
           </Link>
         </div>
 
-        {/* Mobile menu button */}
         <button
           className="md:hidden text-white"
           onClick={() => setIsMenuOpen(!isMenuOpen)} // Toggle the menu
@@ -93,10 +88,8 @@ export const Header = () => {
           </svg>
         </button>
 
-        {/* Mobile dropdown menu */}
         {isMenuOpen && (
           <div style={{ zIndex: 9999}} className="absolute bg-white top-0 h-full mx-auto flex flex-col right-0 items-center  w-full rounded-md shadow-lg md:hidden">
-            {/* Cancel icon on the left */}
             <button
               onClick={() => setIsMenuOpen(false)} // Close menu when cancel icon is clicked
               className="absolute top-4 left-4 text-[#EEE40A] text-2xl"

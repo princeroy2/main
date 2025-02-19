@@ -20,8 +20,7 @@ const getNewsById = async (newsId, Title) => {
     });
 
     // Log the response status and headers for debugging
-    console.log('Response status:', response.status);
-    console.log('Response headers:', response.headers);
+
 
     if (!response.ok) {
       // Log the response text for more details
@@ -34,7 +33,7 @@ const getNewsById = async (newsId, Title) => {
     const data = await response.json();
 
     // Format the title for comparison
-    const formattedTitle = formatTitleForUrl(data.title);
+    const formattedTitle = formatTitleForUrl(data?.title);
 
     // Compare the formatted title with the provided Title
     if (formattedTitle === Title) {

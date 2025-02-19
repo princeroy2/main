@@ -3,14 +3,13 @@ import Footer from "@/components/footer";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import "./globals.css";
-import Head from "next/head";
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import Firstheader from "@/components/firstheader";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 // Global metadata configuration
 export const metadata = {
   title: "CryptoNews | Latest Cryptocurrency News & Updates",
-  description: "Stay up to date with the latest cryptocurrency news, blockchain updates, market trends, and expert analysis on cryptonews.com.",
-  keywords: "cryptocurrency news, crypto headline,crypto AI, Top News, crypto signal, upcoming coins, blockchain, Binance, crypto updates, blockchain news, bitcoin, ethereum, market trends, crypto analysis",
+  description: "Stay up to date with the latest cryptocurrency news, blockchain updates, market trends, and expert analysis on CryptoNews.com.",
+  keywords: "cryptocurrency news, crypto, headlines, crypto AI, top news, crypto signal, upcoming coins, blockchain, Binance, crypto updates, blockchain news, bitcoin, ethereum, market trends, crypto analysis, altcoins, crypto market insights",
   author: 'CryptoNews Team',
   robots: 'index, follow',
 
@@ -18,17 +17,19 @@ export const metadata = {
   openGraph: {
     title: 'CryptoNews - Your Source for Crypto News',
     description: 'Stay updated with the latest trends in crypto, blockchain, and more.',
-    image: 'https://crptonews.com/images/btc.png',
+    image: 'https://crptonews.com/images/ii.png',
     url: 'https://crptonews.com',
     type: 'website',
+    imageAlt: 'Bitcoin Image',  // Added image alt for SEO
   },
 
   // Twitter Card Tags
   twitter: {
     card: 'summary_large_image',
     title: "CryptoNews | Latest Cryptocurrency News & Updates",
-    description: "Stay up to date with the latest cryptocurrency news, blockchain updates, market trends, and expert analysis on cryptonews.com.",
-    image: 'https://crptonews.com/images/btc.png',
+    description: "Stay up to date with the latest cryptocurrency news, blockchain updates, market trends, and expert analysis on CryptoNews.com.",
+    image: 'https://crptonews.com/images/ii.png',
+    imageAlt: 'Bitcoin Image',  // Added image alt for SEO
   },
 
   // Charset Tag
@@ -37,23 +38,32 @@ export const metadata = {
   canonical: 'https://crptonews.com',
 
   // Favicon Tag
-  favicon: '/favicon.ico',
-  
+  icons: {
+    icon: '/favicon.ico',
+  },
+
   // Structured Data (JSON-LD)
-  structuredData: {
-    "@context": "https://schema.org",
-    "@type": "Website",
-    "url": "https://crptonews.com",
-    "name": "CryptoNews",
-    "description": "Stay up to date with the latest cryptocurrency news, blockchain updates, market trends, and expert analysis on cryptonews.com.",
-    "publisher": {
-      "@type": "Organization",
+  other: {
+    structuredData: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Website",
+      "url": "https://crptonews.com",
       "name": "CryptoNews",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://crptonews.com/images/btc.png"
-      }
-    }
+      "description": "Stay up to date with the latest cryptocurrency news, blockchain updates, market trends, and expert analysis on CryptoNews.com.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CryptoNews",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://crptonews.com/images/ii.png",
+          "alt": "CryptoNews Logo"
+        }
+      },
+      "sameAs": [
+        "https://twitter.com/cryptonews",
+        "https://facebook.com/cryptonews"
+      ]
+    }),
   }
 };
 
@@ -68,56 +78,32 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
-        {/* Global SEO Meta Tags */}
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-        <link rel="icon" href={metadata.favicon} />
-        <meta name="robots" content={metadata.robots} />
-        <meta name="description" content={metadata.description} />
-        <meta name="keywords" content={metadata.keywords} />
-        <title>{metadata.title}</title>
-        <meta name="author" content={metadata.author} />
-        <meta property="og:title" content={metadata.openGraph.title} />
-        <meta property="og:description" content={metadata.openGraph.description} />
-        <meta property="og:image" content={metadata.openGraph.image} />
-        <meta property="og:url" content={metadata.openGraph.url} />
-        <meta property="og:type" content={metadata.openGraph.type} />
-        <meta name="twitter:card" content={metadata.twitter.card} />
-        <meta name="twitter:title" content={metadata.twitter.title} />
-        <meta name="twitter:description" content={metadata.twitter.description} />
-        <meta name="twitter:image" content={metadata.twitter.image} />
-        <link rel="canonical" href={metadata.canonical} />
-
-        {/* Structured Data (JSON-LD) */}
-        <script type="application/ld+json">
-          {JSON.stringify(metadata.structuredData)}
-        </script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              function googleTranslateElementInit() {
-                new google.translate.TranslateElement({
-                  pageLanguage: 'en',
-                  autoDisplay: false
-                }, 'google_translate_element');
-              }
-            `,
-          }}
-        ></script>
-      <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-      <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet"/>
-
-      </Head>
-
-      <body >
-
+      <body className="">
         <Header />
         {children}
-        <Analytics />
-        <SpeedInsights/>
         <Footer />
+
+        {/* Vercel Analytics and Speed Insights */}
+        <Analytics />
+        <SpeedInsights />
+
+        <Script
+          type="application/ld+json"
+          id="structured-data"
+          strategy="lazyOnload"
+        >
+          {metadata.other.structuredData}
+        </Script>
+
+        {/* Google Fonts */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        />
       </body>
     </html>
   );

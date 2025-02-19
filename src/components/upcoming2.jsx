@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react';
 import Ico from './ico_token';
-import { IcoApiCall } from '@/app/apicallhook/icoApi';
+import { IcoApiCall } from '@/apicallhook/icoApi';
 import { useRouter } from 'next/compat/router';
 import upcoming_token from '@/cryptoapis/upcoming';
 import Upcoming from './upcoming';

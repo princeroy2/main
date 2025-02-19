@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArticleapiCall } from '@/app/apicallhook/ArticleApi';
+import { ArticleapiCall } from '@/apicallhook/ArticleApi';
 import Link from 'next/link';
 const BlogCard = async () => {
   const serverData=await ArticleapiCall()

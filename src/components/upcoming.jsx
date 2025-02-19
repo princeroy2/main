@@ -1,7 +1,7 @@
 import Link from "next/link";
 import "@/app/shape.css";
 import Head from "next/head";
-
+import Image from "next/image";
 // Default SEO metadata for the entire ICO page
 
 
@@ -9,12 +9,29 @@ export default function Upcoming({ serverData, visibleItems, handleShowMore }) {
 
   return (
     <>
-      <div className="grid grid-cols-1">
+     <div className='bg-[#f0f2f4] overflow-hidden '>
+            <div className='bg-white mt-10 py-2 px-5 sm:mx-32  max-sm:mx-3'>
+              <div className='flex flex-row gap-4 items-center'>
+                <Image
+                  src='/images/btc.png'
+                  alt='logo.png'
+                  height={40}
+                  width={40}
+                  className='w-10 h-10'
+                />
+           
+              </div>
+           
+              <p className='py-1 text-[#212529] font-sans text-[18px] max-sm:text-[14px]'>
+                We have compiled data on the best exchanges to buy each coin based on volume and fees. 
+                We have also compiled the best wallets to store any coin so that your valuable crypto is always safe and accessible!
+              </p>
+            </div>
+      <div className="grid grid-cols-1 sm:mx-32  max-sm:mx-3">
        
 
-        <div className="relative mx-5 max-sm:p-0 p-5 ">
-          <h1 className="font-bold text-lg text-center">ICO TOKEN</h1>
-          <h1 className="font-semibold text-center">Top ICOs & Upcoming ICO Calendar</h1>
+        <div className="relative  max-sm:p-0  ">
+       
 
           <div className="overflow-x-auto"> {/* Make table scrollable on small screens */}
             <table className="min-w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-5 table-auto">
@@ -69,6 +86,7 @@ export default function Upcoming({ serverData, visibleItems, handleShowMore }) {
             </div>
           )}
         </div>
+      </div>
       </div>
 
      

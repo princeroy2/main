@@ -1,9 +1,9 @@
 'use client'
 import { useState, useEffect } from 'react';
 import Ico from './ico_token';
-import { IcoApiCall } from '@/app/apicallhook/icoApi';
+import { IcoApiCall } from '@/apicallhook/icoApi';
 import { useRouter } from 'next/compat/router';
-import upcoming_token from '@/cryptoapis/upcoming';
+import upcoming_token, { ico_token } from '@/cryptoapis/upcoming';
 const Ico2 = () => {
     const route=useRouter()
     const itemsPerPage = 5;
@@ -14,7 +14,7 @@ const Ico2 = () => {
     // Fetch the data on component mount
     useEffect(() => {
         const fetchData = async () => {
-            const data = await upcoming_token();
+            const data = await ico_token();
             setServerData(data); // Set the data after fetching
         };
 

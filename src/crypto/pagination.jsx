@@ -44,14 +44,13 @@ const Pagination =  ({ total_pages, current_page, link }) =>{
     }
   };
 
-  // Generate pages based on the logic above
   generatePages();
 
   // Function to handle the page change
   
 
   return (
-    <div className='flex mt-5 justify-start mb-5 items-center text-[#007bff]  w-max'>
+    <div className='flex mt-6 justify-start mb-5 items-center text-[#007bff]  '>
       {pages.map((page, index) => (
         <div key={index}>
           {/* Render ellipsis or links */}
@@ -59,7 +58,7 @@ const Pagination =  ({ total_pages, current_page, link }) =>{
             <span className='border p-4'>...</span>
           ) : (
             <Link
-              href={`${link}/?page=${page}`}  // Adjust the query params based on your routing
+              href={`/market/${link}/?page=${page}`}  // Adjust the query params based on your routing
               onClick={() => handlePageClick(page)}  // Trigger the parent callback function on click
               className={`border p-4 ${currentPage === page ? 'text-black bg-[#EEE40A]' : ''}`}
             >

@@ -1,5 +1,5 @@
-import { ArticleapiCall } from "../apicallhook/ArticleApi";
-
+import { ArticleapiCall } from "@/apicallhook/ArticleApi";
+// Utility function to generate the URL-friendly title from the article's title
 const formatTitleForUrl = (title) => {
   return title
     .toLowerCase()
@@ -9,25 +9,46 @@ const formatTitleForUrl = (title) => {
 };
 
 export default async function sitemap() {
-  // Fetch all articles from the API
-  const articles = await ArticleapiCall();
+  const allUrls = [];
 
-  // Generate URLs for each article
-  const articleUrls = articles.map((article) => ({
-    url: `https://www.crptonews.com/blog/${formatTitleForUrl(article.title)}`,
-    lastModified: article.created_time,
-    changeFreq: 'monthly',  // Adjust based on how often the content updates
-    priority: 0.8,
-  }));
-
-  // Add the homepage URL
+  // Fetch the first page of the API to get `total_pages` and `current_page`
+  const initialData = await ArticleapiCall(1);  // Fetch the first page
+  const totalPages = initialData.total_pages || 1;
+  
+  // Generate homepage URL (the homepage has the highest priority)
   const homepageUrl = {
-    url: `https://www.crptonews.com`,
-    lastModified: new Date(),  // Use the current date or the latest update time
-    changeFreq: 'daily',       // Homepage usually updates daily
-    priority: 1.0,             // Highest priority
+    url: `https://www.crptonews.com/blog`,
+    lastModified: new Date(),  // Static time for homepage, or can be dynamic
+    changeFreq: 'daily',  // Homepage usually updates daily
+    priority: 1.0, // Highest priority
   };
+  
+  // Add the homepage URL to the list
+  allUrls.push(homepageUrl);
 
-  // Combine the homepage URL with the article URLs
-  return [homepageUrl, ...articleUrls];
+  // Loop through all pages to generate URLs dynamically
+  for (let page = 1; page <= totalPages; page++) {
+    // Fetch data for the current page
+    const pageData = await ArticleapiCall(page);
+
+    // Loop through articles and generate URLs using formatted title and ID
+    const pageUrls = pageData.results.map((article) => {
+      const formattedTitle = formatTitleForUrl(article.title);
+      const articleUrl = `https://www.crptonews.com/${formattedTitle}/${article.id}`;
+      
+      return {
+        url: articleUrl,  // Using formatted URL for each article
+        lastModified: article.created_time,  // Last modification date of the article
+        changeFreq: 'hourly',  // Indicating updates every hour
+        priority: 0.8,  // Priority can vary based on your site's structure
+      };
+    });
+
+    // Add page-specific URLs to the list
+    allUrls.push(...pageUrls);
+  }
+
+  // Return all URLs as the sitemap
+  return allUrls;
 }
+

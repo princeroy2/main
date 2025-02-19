@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const Lang_Btn_list4 = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScriptLoaded, setIsScriptLoaded] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState('EN'); // Default language
+  const [selectedLanguage, setSelectedLanguage] = useState('EN'); // Default language is 'EN'
 
   // List of languages (language code and name for display)
   const languageList = [
@@ -13,8 +13,7 @@ const Lang_Btn_list4 = () => {
     { code: 'es', name: 'ES' },
     { code: 'fr', name: 'FR' },
     { code: 'de', name: 'DE' },
-    { code: 'zh-CN', name: 'ZH' },  // Arabic
-
+    { code: 'zh-CN', name: 'ZH' },
     // Add more languages here if needed
   ];
 
@@ -45,7 +44,7 @@ const Lang_Btn_list4 = () => {
       if (googleTranslateBar) {
         googleTranslateBar.style.display = 'none'; // Hide the translate bar
       }
-    
+
       // After script is loaded, remove the style applied by Google Translate
       const body = document.body;
       if (body && body.style) {
@@ -89,7 +88,7 @@ const Lang_Btn_list4 = () => {
   };
 
   return (
-    <div className="px-3 relative  max-md:hidden">
+    <div className="px-3 relative max-md:hidden">
       {/* Button in the header with an arrow */}
       <div
         onClick={toggleList}

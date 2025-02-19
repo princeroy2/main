@@ -1,50 +1,50 @@
-// app/ico-presale/page.js (or wherever your page is)
+// app/new-coin-listing/page.js (or wherever your page is)
 
 import Ico2 from '@/components/ico_token2';
 import Upcoming2 from '@/components/upcoming2';
 import Head from 'next/head';
-// Metadata for SEO
 
+// Metadata for SEO
 export const metadata = {
-  title: "ICO Presale - All Upcoming ICOs",
-  description: "Explore all upcoming ICO presales and get early access to the best crypto projects. Secure your tokens now!",
-  keywords: "ICO presale, upcoming ICO, token sale, blockchain, DAO, cryptocurrency, crypto presale, token offering, DeFi",
-  author: "Your ICO Team", // Adjust with your team name or company
+  title: "New Coins Listing - All Upcoming Crypto Coins & Tokens",
+  description: "Explore the latest new coins and token listings on CoinMarketCap and CoinGecko. Stay updated with all the new and trending cryptocurrencies and their presale opportunities.",
+  keywords: "new coins, crypto coins, new coin listings, CoinMarketCap, CoinGecko, upcoming tokens, token sale, crypto news, new crypto coins, new cryptocurrencies, coin listing, cryptocurrency presale",
+  author: "Crypto News Team", // Adjust with your team name or company
   robots: 'index, follow', // Ensures search engines index the page
 
   // Open Graph (OG) Tags for social sharing
   openGraph: {
-    title: "ICO Presale - All Upcoming ICOs",
-    description: "Don’t miss out on the latest ICO presale opportunities. Get early access to tokens and participate in exciting projects.",
-    image: 'https://crptonews.com/images/logo.png', // Default image for the ICO page
-    url: 'https://crptonews.com/ico',  // This will be the main ICO page URL
+    title: "New Coins Listing - All Upcoming Crypto Coins & Tokens",
+    description: "Find the latest new coin listings, presale opportunities, and crypto projects. Stay updated with CoinMarketCap and CoinGecko listings.",
+    image: 'https://crptonews.com/images/logo.png', // Default image for the new coin listing page
+    url: 'https://crptonews.com/new-coins',  // The main new coin listings page URL
     type: 'website',
   },
 
   // Twitter Card Tags
   twitter: {
     card: 'summary_large_image', // Large image summary card
-    title: "ICO Presale - All Upcoming ICOs",
-    description: "Explore the latest ICO presale opportunities. Secure your tokens in upcoming ICOs!",
+    title: "New Coins Listing - All Upcoming Crypto Coins & Tokens",
+    description: "Discover new coins and upcoming token listings. Stay ahead with CoinMarketCap and CoinGecko updates.",
     image: 'https://crptonews.com/images/logo.png', // Replace with your default image
   },
 
   charset: 'UTF-8',
-  canonical: 'https://crptonews.com/ico', // Make sure this points to your actual ICO page
+  canonical: 'https://crptonews.com/new-coins', // Make sure this points to your actual new coin listing page
 
   // Structured Data for better SEO visibility
   structuredData: {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "ICO Presale - Upcoming ICOs",
-    "description": "Explore all upcoming ICOs, secure your tokens, and be a part of the blockchain revolution.",
+    "name": "New Coins Listing - Upcoming Crypto Coins & Tokens",
+    "description": "Explore new cryptocurrency listings, presale opportunities, and coin tokens, including updates from CoinMarketCap and CoinGecko.",
     "image": 'https://crptonews.com/images/logo.png', // Replace with a valid image URL
-    "url": 'https://crptonews.com/ico', // Replace with your ICO page URL
+    "url": 'https://crptonews.com/new-coins', // Replace with your new coin listing page URL
     "offers": {
       "@type": "Offer",
-      "url": 'https://crptonews.com/ico',
-      "priceCurrency": "USD", // Adjust based on token currency
-      "price": "0.10",  // Adjust token price
+      "url": 'https://crptonews.com/new-coins',
+      "priceCurrency": "USD", // Adjust based on your pricing currency (if relevant)
+      "price": "0.10",  // Adjust token price (if relevant)
       "eligibleRegion": {
         "@type": "Place",
         "name": "Worldwide"
@@ -52,10 +52,11 @@ export const metadata = {
     }
   }
 };
-export default function IcoPage() {
+
+export default function NewCoinListingPage() {
   return (
     <>
-       <Head>
+      <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
         <meta property="og:title" content={metadata.openGraph.title} />
@@ -68,9 +69,8 @@ export default function IcoPage() {
         <meta name="twitter:image" content={metadata.twitter.image} />
       </Head>
       <div>
-      <Upcoming2 />
-    </div>
+        <Upcoming2 />
+      </div>
     </>
-   
   );
 }

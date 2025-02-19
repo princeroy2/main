@@ -1,6 +1,6 @@
 import { FiArrowUpRight } from 'react-icons/fi';
-import { apiCall } from '@/app/apicallhook/Newsapi';
-import { ArticleapiCall } from '@/app/apicallhook/ArticleApi';
+import { apiCall } from '@/apicallhook/Newsapi';
+import { ArticleapiCall, articlebyid } from '@/apicallhook/ArticleApi';
 import TopNews from '@/components/top_news';
 import BlogCard from '@/components/blog';
 import ShareButton from '@/components/sharedbutton';
@@ -17,34 +17,11 @@ const formatTitleForUrl = (title) => {
 
 // SEO Metadata generation (Next.js specific function)
 export async function generateMetadata({ params }) {
-  const title =await params?.title; // Safe access to params.title
-  const formattedTitle = formatTitleForUrl(title);  // Format title from the URL
+  const Title =await params?.title; // Safe access to params.title
+  const id = await params?.id;  
+  const Apidata = await articlebyid(id,Title);
+  const article=Apidata.data // Format title from the URL
 
-  // If title is not provided, return default metadata
-  if (!title) {
-    return {
-      title: 'Article not found',
-      description: 'This article could not be found.',
-      openGraph: {
-        title: 'Article not found',
-        description: 'This article could not be found.',
-        image: '/default-image.jpg',
-        url: 'https://crptonews.com',
-        type: 'website',
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: 'Article not found',
-        description: 'This article could not be found.',
-        image: 'https://crptonews.com/images/logo.png',
-      },
-      robots: 'noindex, nofollow',
-    };
-  }
-
-  // Fetch article data
-  const articleData = await ArticleapiCall();
-  const article = articleData.find((item) => formatTitleForUrl(item.title) === title);
 
   // If the article is not found, return default metadata
   if (!article) {
@@ -76,7 +53,7 @@ export async function generateMetadata({ params }) {
       title: `${article.title} - CryptoNews`,
       description: article.description,
       image: article.image_main || '/default-image.jpg',
-      url: `https://crptonews.com/blog/${formattedTitle}`,
+      url: `https://crptonews.com/blog/${Title}/${article.id}`,
       type: 'article',
       locale: 'en_US', // Use appropriate locale
     },
@@ -86,7 +63,7 @@ export async function generateMetadata({ params }) {
       description: article.description,
       image: article.image_main || '/default-image.jpg',
     },
-    canonical: `https://crptonews.com/blog/${formattedTitle}`,
+    canonical: `https://crptonews.com/blog/${Title}/${article.id}`,
     robots: 'index, follow', // Make sure the page is indexed
     meta: {
       viewport: 'width=device-width, initial-scale=1',
@@ -110,29 +87,33 @@ export async function generateMetadata({ params }) {
         name: 'CryptoNews',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://crptonews.com/images/logo.png',
+          url: 'https://crptonews.com/images/ii.png',
         },
       },
-      mainEntityOfPage: `https://crptonews.com/blog/${formattedTitle}`,
+      mainEntityOfPage: `https://crptonews.com/blog/${Title}/${article.id}`,
     },
   };
 }
 
 export default async function DiscriptionPage({ params }) {
-  const title = params?.title; // Safe access to params.title
+  const Title =await params?.title; // Safe access to params.title
+  const id = await params?.id;  // Extract dynamic parameter `slug` and `id` from URL
+
 
   // Fetch data for the article based on the `title`
-  const Apidata = await ArticleapiCall();
-  const apidata2 = await apiCall();
-  const article = Apidata;
-  const formattedTitle = formatTitleForUrl(title);  // Format title from the URL
-
-  // Find the article that matches `title`
-  const dataapi = article.find((item) => formatTitleForUrl(item.title) === title);
-  const artilcedatais=5
-  if (!dataapi) {
-    return <div>Article not found</div>;
+  const Apidata = await articlebyid(id,Title);
+  const daataapi111=Apidata.data
+  if (!daataapi111) {
+    return <Custom404/>;
   }
+  const apidata2l1 = await apiCall(2);
+  const apidata2=apidata2l1.results||[]
+
+  const formattedTitle = formatTitleForUrl(Title);  // Format title from the URL
+
+  // if (!daataapi111) {
+  //   return <Custom404/>;
+  // }
 
   return (
     <>
@@ -143,20 +124,20 @@ export default async function DiscriptionPage({ params }) {
         <div className="w-full sm:w-[100%] lg:w-[90%] mx-auto max-sm:px-0 px-4 mb-12">
           <div className="grid grid-cols-1 sm:grid-cols-1 px-5 md:grid-cols-[4fr_2fr] sm:gap-6 md:gap-10 gap-6">
             <div>
-              <h1 className="text-[#2f3c42] text-2xl sm:text-3xl md:text-[30px] font-bold mt-7">
-                {dataapi.title}
+            <h1 className="text-[#2f3c42] text-2xl sm:text-3xl md:text-[30px] font-bold mt-7" >
+            {daataapi111?.title}
               </h1>
               <div className="flex flex-row justify-between items-center mt-2">
                 <a href='www.crptonews.com' className="text-sm underline text-blue-500 sm:text-md">crptonews.com</a>
                 <ShareButton
-              title={dataapi.title}
+              title={daataapi111?.title}
               url={`https://crptonews.com/blog/${formattedTitle}`}
-              image={dataapi.image2}
+              image={daataapi111?.image2}
             />
               </div>
               <img
-                src={dataapi.image2}
-                alt={dataapi.title}
+                src={daataapi111?.image1}
+                alt={daataapi111?.title}
                 className="w-full mt-4 rounded-lg"
               />
            {
@@ -164,11 +145,12 @@ export default async function DiscriptionPage({ params }) {
   Array.from({ length: 5 }, (_, index) => (
     <div key={index} className="flex flex-col">
    
-    <h1 className='font-bold text-[24px] mt-5'>     {dataapi[`heading${index + 1}`]}
+    <h1 className='font-bold text-[24px] mt-5'>     
+      {daataapi111[`heading${index + 1}`]}
 </h1>
-<p key={index} className="text mt-6 font-serif max-md:text-[18px] leading-[3rem] text-[#37474f] tracking-[0.08rem] break-words overflow-wrap-break-word whitespace-pre-line">
+<p className="max-sm:text-[15px] mt-6 font-serif text-[18px] leading-[2rem] text-[#37474f] tracking-[0.08rem] px-0 overflow-wrap-break-word whitespace-pre-line">
 
-      {dataapi[`description${index + 1}`]}
+      {daataapi111[`description${index + 1}`]}
     </p>
     </div>
   ))
@@ -176,15 +158,15 @@ export default async function DiscriptionPage({ params }) {
 
              
               <img
-                src={dataapi.image1}
-                alt={dataapi.title}
+                src={daataapi111.image1}
+                alt={daataapi111.title}
                 className="w-full mt-4 rounded-lg"
               />
               <a
-                href={dataapi?.link}
+                href={daataapi111?.link}
                 className="text-blue-500 hover:text-blue-700 underline mt-5 font-semibold flex items-center space-x-2"
               >
-                <span>{`https://crptonews.com/blog/${formattedTitle}`}</span>
+                <span>{`https://crptonews.com/blog/${formattedTitle}/${daataapi111.id}`}</span>
                 <FiArrowUpRight className="text-blue-500 hover:text-blue-700 text-xl" />
               </a>
             </div>
@@ -196,9 +178,7 @@ export default async function DiscriptionPage({ params }) {
                 <TopNews serverData={apidata2} />
               </div>
 
-              <div className="md:flex md:flex-col md:items-center">
-                <BlogCard serverData={article} />
-              </div>
+           
             </div>
           </div>
         </div>
@@ -207,13 +187,28 @@ export default async function DiscriptionPage({ params }) {
   );
 }
 
-// Function to generate static paths for each dynamic route
-export async function generateStaticParams() {
-  const getdata = await ArticleapiCall();  // Fetch your blog data (articles)
+// // Function to generate static paths for each dynamic route
 
-  // Generate dynamic paths based on the article titles
-  return getdata.map((newsItem) => ({
-    title: formatTitleForUrl(newsItem.title),  // Format title into slug
+
+export async function generateStaticParams() {
+  // Fetch the first page of data
+  const newsdata1 = await ArticleapiCall(1);  // Fetch first page (you can adjust the page number as needed)
+  const newsdata = newsdata1.results || [];
+
+  // Fetch the remaining pages (you can adjust how you want to fetch all pages)
+  const total_pages = newsdata1.total_pages;
+  
+  // Assuming you can fetch all the pages or the API automatically handles pagination internally
+  const allPagesData = [];
+  for (let page = 1; page <= total_pages; page++) {
+    const pageData = await ArticleapiCall(page);
+    allPagesData.push(...pageData.results);  // Collect results from each page
+  }
+
+  // Now map through all the articles to generate static params
+  return allPagesData.map((newsItem) => ({
+    title: formatTitleForUrl(newsItem.title), // Format the title to slug-style
+    id: newsItem.id.toString(),  // Ensure the id is a string for the URL
   }));
 }
 

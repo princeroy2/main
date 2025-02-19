@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import News_TypeButton from "./newstypes_Button";
 import { useState } from "react";
-import NewstypeApi from "@/app/apicallhook/newstype";
-import { apiCall } from "@/app/apicallhook/Newsapi";
+import NewstypeApi from "@/apicallhook/newstype";
+import { apiCall } from "@/apicallhook/Newsapi";
 import TopNews from "./top_news";
 import { useEffect } from "react";
 const NewsTypedata =  ({ serverData, total_pages, news_name, current_page, visibleItems }) => {

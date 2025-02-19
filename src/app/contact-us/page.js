@@ -47,7 +47,7 @@ export default function Contact() {
 
       <div className="bg-gray-100 py-12">
         <div className="container mx-auto px-4 md:px-16">
-          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">Contact CryptoNews</h1>
+          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">Contact CrptoNews</h1>
           <p className="text-lg text-gray-700 leading-relaxed mb-6 text-center">
             We’d love to hear from you! For inquiries, feedback, or collaborations, please reach out through the following contact options.
           </p>

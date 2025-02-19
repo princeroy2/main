@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import DownloadBadges from "./GooglePlayButton";
 import Image from "next/image";
+import Link from "next/link";
 const icon = '/images/ii.png';
 
 const Footer = () => {
@@ -28,7 +29,7 @@ const Footer = () => {
     <footer className="font-sans tracking-wide bg-gray-900 px-20 max-sm:px-15 pt-12 pb-0">
       <div className="flex flex-wrap justify-between gap-10">
         <div className="max-w-md max-sm:max-w-lg">
-          <a href="javascript:void(0)">
+          <a href="">
             <Image
               src={icon}
               alt="Cryptonews"
@@ -45,7 +46,7 @@ const Footer = () => {
           <ul className="mt-2 flex space-x-5">
 
             <li>
-              <a href="javascript:void(0)">
+              <a href="">
                <Image
                       src="svg/facebook.svg" // Access SVG from public/svg
                       width={30}
@@ -56,7 +57,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="javascript:void(0)">
+              <a href="">
               <Image
                       src="svg/twitter.svg" // Access SVG from public/svg
                       width={30}
@@ -67,7 +68,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="javascript:void(0)">
+              <a href="">
               <Image
                       src="svg/whatsapp.svg" // Access SVG from public/svg
                       width={30}
@@ -78,7 +79,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="javascript:void(0)">
+              <a href="">
               <Image
                       src="svg/instagram.svg" // Access SVG from public/svg
                       width={30}
@@ -89,7 +90,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="javascript:void(0)">
+              <a href="">
               <Image
                       src="svg/telegram.svg" // Access SVG from public/svg
                       width={30}
@@ -129,27 +130,27 @@ const Footer = () => {
           {(isMobile ? isServicesOpen : true) && (
             <ul className="mt-6 space-y-4">
               <li>
-                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                <a href="/" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
                   Latest News
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                <a href="/news/bitcoin" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
                 Bitcoin
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                <a href="/news/defi" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
                   Defi
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                <a href="/news/nft" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
                   NFT
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                <a href="/news/Ethereum" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
                 Ethereum
                 </a>
               </li>
@@ -183,22 +184,22 @@ const Footer = () => {
           {(isMobile ? isPlatformsOpen : true) && (
             <ul className="space-y-4 mt-6">
               <li>
-                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                <a href="/blog" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
                 All articles
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                <a href="/" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
                   News
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                <a href="/market/ico" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
                   Ico Token
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                <a href="/market/upcoming-token" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
                   Upcoming Ico
                 </a>
               </li>
@@ -232,30 +233,26 @@ const Footer = () => {
           {(isMobile ? isCompanyOpen : true) && (
             <ul className="space-y-4 mt-6">
               <li>
-                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                <Link href="/about-us" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                <Link href="/about-app" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
                 About app
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                <Link href="/contact-us" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
                   Contact
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                <a href="market/cryptocoin" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
                 Glossary
                 </a>
               </li>
-              <li>
-                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
-                Advertising
-                </a>
-              </li>
+           
             </ul>
           )}
         </div>
@@ -287,27 +284,27 @@ const Footer = () => {
           {(isMobile ? isAdditionalOpen : true) && (
             <ul className="space-y-4 mt-6">
               <li>
-                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                <Link href="/privacy-policy" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
                 Privacy policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                <a href="/term-condition" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
                 For copyright holders
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                <a href="/sitemap.xml" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
                   Sitemap
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                <a href="/contact-us" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
                   Contact
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
+                <a href="/" className="hover:text-gray-400 text-[#b3c5ce] text-sm">
                   News
                 </a>
               </li>
