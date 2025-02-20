@@ -27,19 +27,7 @@
   --text-color: #ffffff;
 }
 
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  user-select: text !important;  /* Enable text selection */
-  -webkit-user-select: text !important; /* For WebKit browsers like Chrome and Safari */
-  -moz-user-select: text !important; /* For Firefox */
-  -ms-user-select: text !important; /* For IE/Edge */
-  cursor: text; /* Show text selection cursor */
-  
-  
-  
-   
-}
+
 
 /* Add this to your global CSS or tailwind config */
 p {
@@ -51,21 +39,13 @@ p {
 
 
 /* Ensure no child elements have user-select: none */
-* {
-  user-select: text;
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
-}
+
 body {
   color: var(--foreground);
   background: var(--background);
  
     font-family: 'Roboto', sans-serif;
-    user-select: text; /* Enable text selection */
-    -webkit-user-select: text; /* Safari */
-    -moz-user-select: text; /* Firefox */
-    -ms-user-select: text; /* Internet Explorer/Edge */
+   
   
   
 }
@@ -121,12 +101,7 @@ iframe.skiptranslate {
 
 }
 /* Disable text selection globally or on specific elements */
-* {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+
 /* Apply this to the Google Translate iframe or container */
 #google_translate_element iframe {
   pointer-events: none;
