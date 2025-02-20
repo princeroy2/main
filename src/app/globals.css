@@ -6,12 +6,14 @@
   --background: #ffffff;
   --foreground: #171717;
 }
+/* Example of non-selectable pseudo-element content */
+
 
 @media (prefers-color-scheme: dark) {
   :root {
       --background-color: #121212;
       --text-color: #ffffff;
-      --foreground: #ededed;
+      /* --foreground: #ededed; */
   }
 }
 /* globals.css */
@@ -28,7 +30,17 @@
 body {
   background-color: var(--background-color);
   color: var(--text-color);
+  user-select: text !important;  /* Enable text selection */
+  -webkit-user-select: text !important; /* For WebKit browsers like Chrome and Safari */
+  -moz-user-select: text !important; /* For Firefox */
+  -ms-user-select: text !important; /* For IE/Edge */
+  cursor: text; /* Show text selection cursor */
+  
+  
+  
+   
 }
+
 /* Add this to your global CSS or tailwind config */
 p {
   display: block;
@@ -38,11 +50,22 @@ p {
 }
 
 
+/* Ensure no child elements have user-select: none */
+* {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+}
 body {
   color: var(--foreground);
   background: var(--background);
  
     font-family: 'Roboto', sans-serif;
+    user-select: text; /* Enable text selection */
+    -webkit-user-select: text; /* Safari */
+    -moz-user-select: text; /* Firefox */
+    -ms-user-select: text; /* Internet Explorer/Edge */
   
   
 }
@@ -113,4 +136,13 @@ iframe.skiptranslate {
 .goog-te-v2-container,
 .goog-te-v2-menu-frame {
   pointer-events: none;
+}
+.scrol {
+  overflow-x: scroll; /* Allows horizontal scrolling */
+  -ms-overflow-style: none;  /* Hides scrollbar in IE and Edge */
+  scrollbar-width: none; /* Hides scrollbar in Firefox */
+}
+
+.scrol::-webkit-scrollbar {
+  display: none; /* Hides scrollbar in Chrome, Safari, and newer versions of Edge */
 }

@@ -10,6 +10,7 @@ import DownloadBadges2 from './googleplaybtn';
 const icon2 = '/images/ii.png';
 export const Header = () => {
   const pathname = usePathname(); // Get the current pathname
+  console.log(pathname)
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu toggle
   const [isMobile, setIsMobile] = useState(false); // Track screen size (is mobile)
   const [isMarket, setIsMarket] = useState(false); // Track screen size (is mobile)
@@ -22,10 +23,21 @@ export const Header = () => {
   // Check active link
   const getActiveLink = (path) => {
     if (pathname === path) {
-      return 'border-b-2  border-yellow-500';
+      // Exact match for "/market" (for top news/coins)
+      return 'border-b-2 border-yellow-500';
+    } else if (
+      (pathname.startsWith('/market/') && path === '/market') || 
+      (pathname.startsWith('/news/') && path === '/')
+    ) {
+      // If pathname is "/market/*" (any sub-path under "/market")
+      return 'border-b-2 border-yellow-500'; // No style for `/market/*` links on the base `/market` item
     }
+  
     return '';
   };
+  
+  
+  
 
   // Disable body scroll when the menu is open, and re-enable it when closed
   useEffect(() => {
@@ -49,7 +61,7 @@ export const Header = () => {
 
   return (
     <div className="bg-[#111827] w-full h-16">
-      <div className="mx-11 flex flex-row max-sm:justify-between  sm:gap-[20%] items-center h-16">
+      <div className="mx-11 flex flex-row max-sm:justify-between max-md:justify-between max-md:mx-3 max-lg:mx-1 max-lg:gap-[25%]  sm:gap-[20%] items-center h-16">
 
         <div className="flex flex-row  items-center">
           <Link href="/">
@@ -58,7 +70,7 @@ export const Header = () => {
         </div>
 
 
-        <div className="hidden md:flex flex-row items-center justify-start gap-6 text-white">
+        <div className="hidden md:flex flex-row items-center justify-start gap-6 max-lg:gap-8 max-lg:text-[12px] text-white">
           <Link href="/">
             <div className={`cursor-pointer ${getActiveLink('/')}`}>News</div>
           </Link>
@@ -203,9 +215,9 @@ export const Header = () => {
   isMarket &&(
    <> 
    <ol className='mt-0 text-[14px] '>
-   <li className=' border-b max-w-max'>ico token</li>
-    <li className=' border-b max-w-max'>upcoming token</li>
-    <li className=' border-b max-w-max'>All coins info</li>
+   <li className='mt-2' ><Link onClick={() => setIsMenuOpen(false)}  href='/market/ico' className=' border-b max-w-max'>ico token</Link></li>
+   <li className='mt-2'><Link onClick={() => setIsMenuOpen(false)}  href='/market/upcoming-token' className=' border-b max-w-max'>upcoming token</Link></li>
+   <li className='mt-2'><Link onClick={() => setIsMenuOpen(false)}  href='/market/cryptocoin' className=' border-b max-w-max'>All coins info</Link></li>
    </ol>
     </>
 
@@ -214,7 +226,7 @@ export const Header = () => {
               <Link href="/crypto-whales" onClick={() => setIsMenuOpen(false)}>
                 <div className={`cursor-pointer inline-block ${getActiveLink('/crypto-whales')}`}>Whales Tracking</div>
               </Link>
-              <Link href="/New-listing" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/new-listing" onClick={() => setIsMenuOpen(false)}>
                 <div className={`cursor-pointer font-inter inline-block ${getActiveLink('/New-listing')}`}>New Listing</div>
               </Link>
             </div>

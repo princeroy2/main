@@ -16,8 +16,8 @@ export const metadata = {
     openGraph: {
       title: "Crypto Whale Tracker | Monitor Whale Transactions and Crypto Buyers",
       description: "Track major crypto transactions and movements by whales, including top buyers, wallet activities, and market insights.",
-      image: "https://yourwebsite.com/images/whale-tracking.png", // Ensure this image fits your content
-      url: "https://yourwebsite.com/whale-tracker",
+      image: "https://crptonews.com/images/ii.png", // Ensure this image fits your content
+      url: "https://crptonews.com/crypto-whales",
       type: "website",
       imageAlt: "Crypto Whale Monitoring",
     },
@@ -27,14 +27,14 @@ export const metadata = {
       card: "summary_large_image",
       title: "Crypto Whale Tracker | Monitor Whale Transactions and Crypto Buyers",
       description: "Stay informed about crypto whales and their massive transactions. Track large buys and market moves.",
-      image: "https://yourwebsite.com/images/whale-tracking.png", // Ensure this image fits your content
+      image: "https://crptonews.com/images/ii.png", // Ensure this image fits your content
       imageAlt: "Crypto Whale Monitoring",
     },
   
     // Charset Tag
     charset: "UTF-8",
   
-    canonical: "https://yourwebsite.com/whale-tracker",
+    canonical: "https://crptonews.com/crypto-whales",
   
     // Favicon Tag
     favicon: "/favicon.ico",
@@ -43,7 +43,7 @@ export const metadata = {
     structuredData: {
       "@context": "https://schema.org",
       "@type": "Website",
-      "url": "https://yourwebsite.com/whale-tracker",
+      "url": "https://crptonews.com/crypto-whales",
       "name": "Crypto Whale Tracker",
       "description": "Track and monitor crypto whale transactions and movements including large buys, wallet activities, and market-moving actions.",
       "publisher": {
@@ -51,7 +51,7 @@ export const metadata = {
         "name": "Crypto Whale Tracker",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://yourwebsite.com/images/logo.png", // Use appropriate logo URL
+          "url": "https://crptonews.com/images/ii.png", // Use appropriate logo URL
           "alt": "Crypto Whale Tracker Logo",
         },
       },
@@ -106,21 +106,21 @@ const Page = async () => {
 
 <div className=' max-sm:mb-10  mt-5 py-2 max-sm:py-1 px-5 max-sm:px-4 sm:mx-32'>
     <div className='flex flex-col gap-1 text-center items-center'>
-        <Image
+        {/* <Image
             src='/images/whales.webp'
             alt='logo.png'
             height={100}
             width={400}
             className=' text-center align-middle'
-        />
-        <h1 className='font-sans text-[30px]'>Whales Trake Now</h1>
-        <h2 className='mt-2 text-[#212529] font-sans text-[18px] font-medium'>Track the latest whale movements, discover where the big players are moving</h2>
+        /> */}
+        <h1 className='font-sans max-sm:text-[20px] text-[30px] text-[#8f8f2c] font-bold'>Whales Trake Now</h1>
+        <h2 className='mt-2 text-[#212529] font-sans text-[18px] max-sm:text-[16px] font-medium'>Track the latest whale movements, discover where the big players are moving</h2>
 
     </div>
 </div>
-<div className=' bg-white text-[black] mt-5 max-sm:px-3 max-sm:mt-2 py-2 px-5 sm:mx-32'>
+<div className=' bg-white text-[black] mt-2 max-lg:mx-3 max-lg:px-1 max-sm:mt-2 py-2 px-5 max-sm:px-1 lg:mx-32'>
 
-    <table className="w-full px-7 max-sm:px-2">
+    <table className="w-full md:px-7 max-sm:px-0">
 
         <tbody className="">
             {

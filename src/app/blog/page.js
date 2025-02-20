@@ -1,5 +1,4 @@
 
-import MainNews from "@/components/main_news";
 import Link from "next/link";
 import Image from "next/image";
 import TopNews from "@/components/top_news";

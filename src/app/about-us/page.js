@@ -6,7 +6,7 @@ export const metadata = {
   openGraph: {
     title: 'About CryptoNews',
     description: 'Learn about CryptoNews, our mission, team, and vision for delivering the latest cryptocurrency news.',
-    image: 'https://crptonews.com/images/logo.png', // You can replace this with a custom image URL
+    image: 'https://crptonews.com/images/ii.png', // You can replace this with a custom image URL
     url: 'https://crptonews.com/about-us', // The URL of your about page
     type: 'website',
     locale: 'en_US', // Locale for OpenGraph
@@ -15,7 +15,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'About CryptoNews',
     description: 'Learn about CryptoNews, our mission, team, and vision for delivering the latest cryptocurrency news.',
-    image: 'https://crptonews.com/images/logo.png', // You can replace this with a custom image URL
+    image: 'https://crptonews.com/images/ii.png', // You can replace this with a custom image URL
   },
   canonical: 'https://crptonews.com/about-us', // The canonical URL for the page
   robots: 'index, follow', // Ensure that the page is indexed by search engines
@@ -34,7 +34,7 @@ export const metadata = {
       name: 'CryptoNews',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://crptonews.com/images/logo.png', // Replace with your site's logo URL
+        url: 'https://crptonews.com/images/ii.png', // Replace with your site's logo URL
       },
     },
   },

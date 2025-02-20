@@ -4,6 +4,7 @@ import TopNews from "@/components/top_news";
 import { apiCall } from "../apicallhook/Newsapi";
 import MainNews2 from "@/components/main_news2";
 import MObileAppbanner from "@/components/mobileappbanner";
+import BlogCard from "@/components/blog";
 export default async function Main() {
   const Apidata = await apiCall(1);
   const apidatamain = Apidata.results || [];
@@ -15,6 +16,7 @@ export default async function Main() {
   return (
     <>
       <div className="bg-[#eee9e9] w-full mt-0 h-[150px]"></div>
+      <hr className="border-t-2 border-gray-300 mx-8 mt-0" />
 
       <News_TypeButton />
 
@@ -29,6 +31,7 @@ export default async function Main() {
             <div className="max-sm:hidden">
               <h1 className="mt-6 text-start ml-5 mb-0 font-semibold text-lg">Top News</h1>
               <TopNews serverData={Apidatatopnews} />
+              <BlogCard  />
             </div>
           </div>
         </div>

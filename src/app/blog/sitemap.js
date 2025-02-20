@@ -13,6 +13,7 @@ export default async function sitemap() {
 
   // Fetch the first page of the API to get `total_pages` and `current_page`
   const initialData = await ArticleapiCall(1);  // Fetch the first page
+  console.log(initialData)
   const totalPages = initialData.total_pages || 1;
   
   // Generate homepage URL (the homepage has the highest priority)

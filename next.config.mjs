@@ -16,6 +16,7 @@ const nextConfig = {
         'cryptocurrencyalerting.com',
         'cryptocompare.com',
         'www.cryptocompare.com',
+        'icobench.com'
       ], // Add the domain without https://
     
     },

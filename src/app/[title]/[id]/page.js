@@ -14,8 +14,8 @@ const formatTitleForUrl = (title) => {
     .replace(/-+/g, '-');           // Ensure no multiple consecutive hyphens
 };
 export async function generateMetadata({ params }) {
-  const id = await params?.id;  // Extract dynamic parameter `slug` and `id` from URL
-  const title = await params?.title;
+  const {id} = await params;  // Extract dynamic parameter `slug` and `id` from URL
+  const {title} = await params;
   const formattedTitle = formatTitleForUrl(title);  // Format title from the URL
 
   const articleData1 = await getNewsById(id,title);
@@ -92,8 +92,9 @@ export async function generateMetadata({ params }) {
   };
 }
 export default async function DiscriptionPage({ params }) {
-  const id = await params?.id;  // Extract dynamic parameter `slug` and `id` from URL
-  const Title = await params?.title;  // Extract dynamic parameter `slug` and `id` from URL  
+  const {id} = await params;  // Extract dynamic parameter `slug` and `id` from URL
+  const {title} = await params;  // Extract dynamic parameter `slug` and `id` from URL
+  const Title=title  
 
   const daatapi222= await getNewsById(id,Title)
   const newsdata=await apiCall(2)
@@ -107,7 +108,7 @@ export default async function DiscriptionPage({ params }) {
     <>
       <div>
         <div className="bg-[#eee9e9] w-full h-[150px]"></div>
-        <hr className="border-t-2 border-gray-300 mx-8 mt-3" />
+        <hr className="border-t-2 border-gray-300 mx-8 mt-0" />
         
       
         <div className="w-full lg:px-24 mx-auto mb-12 px-3">
@@ -124,7 +125,7 @@ export default async function DiscriptionPage({ params }) {
 
               <ShareButton
                   title={daataapi?.title}
-                  url={`https://crptonews.com/${daataapi.id}`}
+                  url={`https://crptonews.com/${Title}/${daataapi.id}`}
                   image={daataapi.image}
                 />
              

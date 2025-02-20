@@ -9,73 +9,114 @@ export default function Upcoming({ serverData, visibleItems, handleShowMore }) {
 
   return (
     <>
-     <div className='bg-[#f0f2f4] overflow-hidden '>
-            <div className='bg-white mt-10 py-2 px-5 sm:mx-32  max-sm:mx-3'>
-              <div className='flex flex-row gap-4 items-center'>
+
+       
+
+        <div className="bg-[#f0f2f4] overflow-hidden ">
+        <div className="bg-white mt-10 py-2 px-5 lg:mx-32 max-lg:mx-3 max-w-max">
+            <div className="flex flex-row gap-1 items-center">
                 <Image
-                  src='/images/btc.png'
-                  alt='logo.png'
-                  height={40}
-                  width={40}
-                  className='w-10 h-10'
+                    src="/images/favicon.png"
+                    alt="logo.png"
+                    height={40}
+                    width={40}
+                    className="w-10 h-10"
                 />
-           
-              </div>
-           
-              <p className='py-1 text-[#212529] font-sans text-[18px] max-sm:text-[14px]'>
-                We have compiled data on the best exchanges to buy each coin based on volume and fees. 
-                We have also compiled the best wallets to store any coin so that your valuable crypto is always safe and accessible!
-              </p>
+                <h1 className="font-sans text-[30px]">Upcoming Coins</h1>
             </div>
-      <div className="grid grid-cols-1 sm:mx-32  max-sm:mx-3">
-       
+            <p className="mt-2 text-[#212529] font-sans text-[18px] max-sm:text-[14px]">
+Discover the next big cryptocurrencies set to launch in the market.
+Get ahead of the curve with detailed information on upcoming coin projects.
+Track the latest coin launches, their potential, and the buzz surrounding them
+            </p>
 
-        <div className="relative  max-sm:p-0  ">
-       
+        </div>
 
-          <div className="overflow-x-auto"> {/* Make table scrollable on small screens */}
-            <table className="min-w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-5 table-auto">
-              <thead className="text-xs font-bold text-black uppercase bg-[#aca643]  dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                  <th scope="col" className="px-4 py-3 w-[50%]">
-                    ICO NAME
-                  </th>
-                  <th scope="col" className="px-4 py-3 text-end ">
-                    CURRENT STAGE
-                  </th>
-                
-                </tr>
-              </thead>
-              <tbody>
-                {serverData.slice(0, visibleItems).map((item) => {
-                  const { name, image, link, time } = item;
-                  return (
-                    <tr
-                      key={name}
-                      onClick={() => window.location.href = link}
-                      className="bg-white border-b flex-wrap whitespace-nowrap dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-100 active:bg-gray-200 cursor-pointer"
-                    >
-                      <td className="px-4 py-4 flex items-center gap-2 text-gray-900 whitespace-nowrap dark:text-white">
-                        <img
-                          src={image}
-                          alt={name}
-                          className="w-[50px] max-sm:h-[30px]  max-sm:w-[30px] h-[50px] object-cover rounded-lg"
-                        />
-                        <h1 className="text-sm text-[#414242] max-sm:text-[10px] text-[16px] font-bold">{name}</h1>
-                      </td>
-                      <td className="px-4 py-4 max-sm:mr-4 flex-nowrap text-end ">
-                        <h1 className="font-[700] max-sm:text-[10px] text-[#019601]">{time}</h1>
-                      </td>
-                    
+        <div className="flex flex-row gap-0 mt-10 lg:mx-32 max-lg:mx-3  scrol ">
+            <div className={`p-5 text-center max-sm:mx-2 max-sm:p-2 text-[#007bff]  `}>
+                <h1 className="font-medium text-lg max-sm:text-[14px]">Top Coins</h1>
+            </div>
+            <Link href='/market/defi_coins'>
+      <div className={`hover:text-blue-200 max-sm:mx-2 max-sm:p-2 text-center hover:cursor-pointer text-[#007bff] p-5 `}>
+        <h1 className='font-medium text-lg max-sm:text-[14px]'>DeFi Coins</h1>
+      </div>
+    </Link>
+            <Link href="/market/new_coins">
+                <div className={` hover:text-blue-200 text-center hover:cursor-pointer max-sm:mx-2 max-sm:p-2 text-[#007bff] p-5`}>
+                    <h1 className="font-medium text-[#007bff] text-lg max-sm:text-[14px]">New Coins</h1>
+                </div>
+            </Link>
+            <Link href="/market/ico">
+      <div className={`hover:text-blue-200 text-center hover:cursor-pointer max-sm:mx-2 max-sm:p-2 text-[#007bff] p-5 `}>
+        <h1 className="font-medium text-lg max-sm:text-[14px]">Presale Coins</h1>
+      </div>
+    </Link>
+
+    <Link href="/market/upcoming-token">
+      <div className={`hover:text-blue-200 text-center hover:cursor-pointer max-sm:mx-2 max-sm:p-2 bg-white text-black p-5 `}>
+        <h1 className="font-medium text-lg max-sm:text-[14px] ">Upcoming Coins</h1>
+      </div>
+    </Link>
+    <Link href="/market/cryptocoin">
+      <div className={`hover:text-blue-200 text-center hover:cursor-pointer max-sm:mx-2 max-sm:p-2 text-[#007bff] p-5 `}>
+        <h1 className="font-medium text-lg max-sm:text-[14px]">Coins List</h1>
+      </div>
+    </Link>
+            
+        </div>
+
+        <div className="bg-white mt-0 py-2 px-10 max-lg:px-2 lg:mx-32 max-md:mx-3">
+            <div className="my-4 max-sm:my-1 bg-white">
+                <div className="flex space-x-3 max-sm:space-x-5 overflow-auto break-words max-sm:p-1 flex-row justify-between bg-[#f8f9fa] p-2 shadow-md">
+                    <div>10875 <span className="text-[#6c757d]">Coins</span></div>
                    
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
+                </div>
 
-          {visibleItems < serverData.length && (
+                <div className="overflow-x-auto">
+                <table className="min-w-full text-left rtl:text-right text-black dark:text-gray-400 mt-5 table-auto">
+                            <thead className="text-[15px] text-black uppercase bg-white dark:bg-white dark:text-gray-400">
+                                <tr className="text-black font-medium">
+                                    {/* <th scope="col" className="px-4 py-3 w-[10%]">RANK</th>
+                                    <th scope="col" className="px-4 py-3 w-[30%] md:w-[30%]">COIN</th> */}
+                                    <th scope="col" className="px-4 py-3 ">Coin Name</th>
+                                    <th scope="col" className="px-4 py-3 ">Date</th>
+                                    {/* <th scope="col" className="px-4 py-3">7D</th>
+                                    <th scope="col" className="px-4 py-3">Marketcap</th>
+                                    <th scope="col" className="px-4 py-3">Volume</th> */}
+                                </tr>
+                            </thead>
+                            <tbody className="font-serif">
+                            {serverData.slice(0, visibleItems).map((item,index)=>{
+                              const { name, image, link, time ,} = item;
+
+                              return(
+                                <tr key={index} className="px-4 py-3">
+                                {/* <td className="px-5 py-5">{index}</td> */}
+
+                                {/* Coin Name & Image Column with Flex for Responsiveness */}
+                                <td className="flex flex-row items-center gap-3 px-2 py-5 max-sm-pr-10">
+                                    <Image
+                                        alt={image}
+                                        height={25}
+                                        width={25}
+                                        src={image}
+                                        className="w-[30px] h-[30px] object-cover"
+                                    />
+                                 <span className="text-sm font-serif text-[#007bff] md:text-lg font-medium">
+  {name.length > 5 ? name.split('').slice(0, 5).join('') + '...' : name}
+</span>
+
+                                </td>
+
+                             
+                                <td className="text-left px-5 py-3 ">{time}</td>
+                            </tr>
+                              )
+                            })}
+                            </tbody>
+                        </table>
+                </div>
+                {visibleItems < serverData.length && (
             <div className="flex justify-center items-center mt-6">
               <button
                 onClick={handleShowMore}
@@ -84,10 +125,11 @@ export default function Upcoming({ serverData, visibleItems, handleShowMore }) {
                 Show More
               </button>
             </div>
-          )}
+          )}            </div>
         </div>
-      </div>
-      </div>
+    </div>
+
+
 
      
     </>

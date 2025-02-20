@@ -7,8 +7,8 @@ export const metadata = {
   openGraph: {
     title: 'CryptoNews Policies - Privacy, Terms, Refund, Disclaimer',
     description: 'Read the policies for CryptoNews, including Privacy Policy, Cookie Policy, Refund Policy, Disclaimer, and Terms of Use.',
-    image: 'https://crptonews.com/images/logo.png', // You can replace this with a custom image URL
-    url: 'https://crptonews.com/privacy-policies', // Set the URL to the page
+    image: 'https://crptonews.com/images/ii.png', // You can replace this with a custom image URL
+    url: 'https://crptonews.com/privacy-policy', // Set the URL to the page
     type: 'website',
     locale: 'en_US', // Locale for OpenGraph
   },
@@ -16,9 +16,9 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'CryptoNews Policies - Privacy, Terms, Refund, Disclaimer',
     description: 'Read the policies for CryptoNews, including Privacy Policy, Cookie Policy, Refund Policy, Disclaimer, and Terms of Use.',
-    image: 'https://crptonews.com/images/logo.png', // You can replace this with a custom image URL
+    image: 'https://crptonews.com/images/ii.png', // You can replace this with a custom image URL
   },
-  canonical: 'https://crptonews.com/privacy-policies', // The canonical URL for the page
+  canonical: 'https://crptonews.com/privacy-policy', // The canonical URL for the page
   robots: 'index, follow', // Ensure that the page is indexed by search engines
   meta: {
     viewport: 'width=device-width, initial-scale=1',
@@ -29,13 +29,13 @@ export const metadata = {
     '@type': 'WebPage',
     headline: 'CryptoNews Policies',
     description: 'Read the policies for CryptoNews, including Privacy Policy, Cookie Policy, Refund Policy, Disclaimer, and Terms of Use.',
-    url: 'https://crptonews.com/privacy-policies',
+    url: 'https://crptonews.com/privacy-policy',
     publisher: {
       '@type': 'Organization',
       name: 'CryptoNews',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://crptonews.com/images/logo.png', // Replace with your site's logo URL
+        url: 'https://crptonews.com/images/ii.png', // Replace with your site's logo URL
       },
     },
   },
@@ -44,7 +44,7 @@ export const metadata = {
 export default function Policies() {
   return (
     <>
-      <div className="bg-gray-100 py-12">
+      <div className="bg-white py-12">
         <div className="container mx-auto px-4 md:px-16">
           <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">CrptoNews Policies</h1>
 

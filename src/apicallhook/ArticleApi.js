@@ -50,9 +50,10 @@ export const articlebyid = async (newsId, Title) => {
 
     // Format the title for comparison
     const formattedTitle = formatTitleForUrl(data.title);
-
+    console.log(formattedTitle,Title)
     // Compare the formatted title with the provided Title
     if (formattedTitle === Title) {
+      
       return { data, error: null }; // Return the data if titles match
     } else {
       return { data: null, error: 'Title mismatch' }; // Return error if titles don't match

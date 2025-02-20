@@ -15,7 +15,7 @@ const Market_page = () => {
     const [total_pages, setTotal_pages] = useState(1);
     const [current_page, setCurrent_page] = useState(1);
 
-    const link = '/market';
+    const link = '/';
 
     // Client-side data fetching
     useEffect(() => {
@@ -57,7 +57,7 @@ const Market_page = () => {
         <Suspense fallback={<div>Loading...</div>}>
 
         <div className="bg-[#f0f2f4] overflow-hidden ">
-            <div className="bg-white mt-10 py-2 px-5 sm:mx-32 max-sm:mx-3 max-w-max">
+            <div className="bg-white mt-10 py-2 px-5 lg:mx-32 max-lg:mx-3 max-w-max">
                 <div className="flex flex-row gap-1 items-center">
                     <Image
                         src="/images/i.png"
@@ -66,51 +66,49 @@ const Market_page = () => {
                         width={40}
                         className="w-10 h-10"
                     />
-                    <h1 className="font-sans text-[30px]">Crypto Coins</h1>
+                    <h1 className="font-sans text-[30px]">rypto Coins</h1>
                 </div>
                 <p className="mt-2 text-[#212529] font-sans text-[18px] max-sm:text-[14px]">
-                    Learn about each coin: what it is, where to buy it and where to store it.
-                </p>
+                Discover the top gainers and their price movements, highlighting the best-performing coins
+                Access detailed market data, including volume and market capitalization for all listed coins                </p>
 
-                <p className="py-1 text-[#212529] font-sans text-[18px] max-sm:text-[14px]">
-                    We have compiled data on the best exchanges to buy each coin based on volume and fees. We have also compiled the best wallets to store any coin so that your valuable crypto is always safe and accessible!
-                </p>
+             
             </div>
 
-            <div className="flex flex-row gap-0 mt-10 sm:mx-32 max-sm:mx-3 ">
-                <div className={`p-5 max-sm:p-3 bg-[#EEE40A] text-black`}>
-                    <h1 className="font-medium text-lg max-sm:text-[16px]">Top Coins</h1>
+            <div className="flex flex-row gap-0 mt-10 lg:mx-32 max-lg:mx-3  scrol ">
+                <div className={`p-5 max-sm:mx-2 max-sm:p-2   bg-white text-black`}>
+                    <h1 className="font-medium text-lg max-sm:text-[14px]">Top Coins</h1>
                 </div>
                 <Link href='/market/defi_coins'>
-          <div className={`hover:text-blue-200 max-sm:p-3 hover:cursor-pointer p-5 ${getActiveLink('defi_coins')}`}>
-            <h1 className='font-medium text-lg max-sm:text-[16px]'>DeFi Coins</h1>
+          <div className={`hover:text-blue-200 max-sm:mx-2 max-sm:p-2 hover:cursor-pointer text-[#007bff] p-5 `}>
+            <h1 className='font-medium text-lg max-sm:text-[14px]'>DeFi Coins</h1>
           </div>
         </Link>
                 <Link href="/market/new_coins">
-                    <div className={` hover:text-blue-200 hover:cursor-pointer max-sm:p-3 text-[#007bff] p-5`}>
-                        <h1 className="font-medium text-[#007bff] text-lg max-sm:text-[16px]">New Coins</h1>
+                    <div className={` hover:text-blue-200 hover:cursor-pointer max-sm:mx-2 max-sm:p-2 text-[#007bff] p-5`}>
+                        <h1 className="font-medium text-[#007bff] text-lg max-sm:text-[14px]">New Coins</h1>
                     </div>
                 </Link>
                 <Link href="/market/ico">
-          <div className={`hover:text-blue-200 hover:cursor-pointer max-sm:p-3 text-[#007bff] p-5 `}>
-            <h1 className="font-medium text-lg max-sm:text-[16px]">Presale Coins</h1>
+          <div className={`hover:text-blue-200 hover:cursor-pointer max-sm:mx-2 max-sm:p-2 text-[#007bff] p-5 `}>
+            <h1 className="font-medium text-lg max-sm:text-[14px]">Presale Coins</h1>
           </div>
         </Link>
 
         <Link href="/market/upcoming-token">
-          <div className={`hover:text-blue-200 hover:cursor-pointer max-sm:p-3 text-[#007bff] p-5 `}>
-            <h1 className="font-medium text-lg max-sm:text-[16px]">Upcoming Coins</h1>
+          <div className={`hover:text-blue-200 hover:cursor-pointer max-sm:mx-2 max-sm:p-2 text-[#007bff] p-5 `}>
+            <h1 className="font-medium text-lg max-sm:text-[14px]">Upcoming Coins</h1>
           </div>
         </Link>
         <Link href="/market/cryptocoin">
-          <div className={`hover:text-blue-200 hover:cursor-pointer max-sm:p-3 text-[#007bff] p-5 `}>
-            <h1 className="font-medium text-lg max-sm:text-[16px]">A TO Z Coins</h1>
+          <div className={`hover:text-blue-200 hover:cursor-pointer max-sm:mx-2 max-sm:p-2 text-[#007bff] p-5 `}>
+            <h1 className="font-medium text-lg max-sm:text-[14px]">Coins List</h1>
           </div>
         </Link>
                 
             </div>
 
-            <div className="bg-white mt-0 py-2 px-10 max-sm:px-2 sm:mx-32 max-sm:mx-3">
+            <div className="bg-white mt-0 py-2 px-10 max-lg:px-2 lg:mx-32 max-md:mx-3">
                 <div className="my-4 max-sm:my-1 bg-white">
                     <div className="flex space-x-3 max-sm:space-x-5 overflow-auto break-words max-sm:p-1 flex-row justify-between bg-[#f8f9fa] p-2 shadow-md">
                         <div>10875 <span className="text-[#6c757d]">Coins</span></div>
@@ -126,8 +124,8 @@ const Market_page = () => {
                     </div>
 
                     <div className="overflow-x-auto">
-                    <table className="min-w-full text-left rtl:text-right text-black dark:text-gray-400 mt-5 table-auto">
-                                <thead className="text-[15px] text-black uppercase bg-white dark:bg-gray-700 dark:text-gray-400">
+                    <table className="min-w-full  text-left rtl:text-right text-black dark:text-gray-400 mt-5 table-auto">
+                                <thead className="text-[15px] dark:bg-white text-black uppercase bg-white dark:text-gray-400">
                                     <tr className="text-black font-medium">
                                         <th scope="col" className="px-4 py-3 w-[10%]">RANK</th>
                                         <th scope="col" className="px-4 py-3 w-[30%] md:w-[30%]">COIN</th>

@@ -2,11 +2,11 @@ import Market_pagename from '@/components/marketName';
 
 // Function to generate metadata dynamically
 export async function generateMetadata({ params }) {
-  const { name } = params;
+  const { name } =await params;
 
   // Defining common metadata to avoid repetition
   const defaultImage = 'https://crptonews.com/images/ii.png'; // Change this to a real image URL
-  const baseURL = 'https://crptonews.com.com';
+  const baseURL = 'https://crptonews.com';
 
   // Metadata for Defi Coins
   if (name === 'defi_coins') {
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }) {
         title: 'Defi Coins - Live Prices, Market Cap & Upcoming Tokens',
         description: 'Explore the top Defi coins with live prices, market cap, rankings, and upcoming token releases.',
         type: 'website',
-        url: `${baseURL}/defi-coins`,
+        url: `${baseURL}/market/defi-coins`,
         images: [
           {
             url: 'https://crptonews.com.com/images/ii.png', // Change to relevant image URL
@@ -40,9 +40,9 @@ export async function generateMetadata({ params }) {
         "@type": "WebPage",
         "headline": "Defi Coins - Live Prices & Market Trends",
         "description": "Get the latest updates on Defi coins, including live prices, market cap, and upcoming tokens.",
-        "url": `${baseURL}/defi-coins`,
+        "url": `${baseURL}/market/defi-coins`,
         "image": 'https://crptonews.com/images/ii.jpg', // Image URL for structured data
-        "mainEntityOfPage": `${baseURL}/defi-coins`,
+        "mainEntityOfPage": `${baseURL}/market/defi-coins`,
       }
     };
   }
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }) {
         title: 'New Crypto Coins - Latest Listings, Prices, Market Cap & Volume',
         description: 'Discover the newest coins in the market with their latest prices, market cap, and volume.',
         type: 'website',
-        url: `${baseURL}/new-coins`,
+        url: `${baseURL}/market/new-coins`,
         images: [
           {
             url: 'https://crptonews.com/images/ii.jpg', // Change to relevant image URL
@@ -81,7 +81,7 @@ export async function generateMetadata({ params }) {
         "description": "Find the latest new coin listings, along with their prices, market cap, volume, and future updates.",
         "url": `${baseURL}/new-coins`,
         "image": 'https://crptonews.com/images/ii.jpg', // Image URL for structured data
-        "mainEntityOfPage": `${baseURL}/new-coins`,
+        "mainEntityOfPage": `${baseURL}/market/new-coins`,
       }
     };
   }
@@ -124,9 +124,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
-// The actual Market page component
 const Market_page = async ({ params }) => {
-  const name = await params.name;
+  const {name} = await params
 
   return (
     <Market_pagename name={name} />

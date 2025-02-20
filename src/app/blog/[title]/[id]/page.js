@@ -2,7 +2,6 @@ import { FiArrowUpRight } from 'react-icons/fi';
 import { apiCall } from '@/apicallhook/Newsapi';
 import { ArticleapiCall, articlebyid } from '@/apicallhook/ArticleApi';
 import TopNews from '@/components/top_news';
-import BlogCard from '@/components/blog';
 import ShareButton from '@/components/sharedbutton';
 
 
@@ -17,8 +16,8 @@ const formatTitleForUrl = (title) => {
 
 // SEO Metadata generation (Next.js specific function)
 export async function generateMetadata({ params }) {
-  const Title =await params?.title; // Safe access to params.title
-  const id = await params?.id;  
+  const {Title} =await params; // Safe access to params.title
+  const {id} = await params;  
   const Apidata = await articlebyid(id,Title);
   const article=Apidata.data // Format title from the URL
 
@@ -96,15 +95,16 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function DiscriptionPage({ params }) {
-  const Title =await params?.title; // Safe access to params.title
-  const id = await params?.id;  // Extract dynamic parameter `slug` and `id` from URL
-
+  const {title} =await params; // Safe access to params.title
+  const {id} = await params;  // Extract dynamic parameter `slug` and `id` from URL
+  const Title=title
 
   // Fetch data for the article based on the `title`
   const Apidata = await articlebyid(id,Title);
   const daataapi111=Apidata.data
+  console.log(Apidata)
   if (!daataapi111) {
-    return <Custom404/>;
+    return <>no article</>;
   }
   const apidata2l1 = await apiCall(2);
   const apidata2=apidata2l1.results||[]

@@ -10,6 +10,8 @@ const Footer = () => {
   const [isPlatformsOpen, setPlatformsOpen] = useState(false);
   const [isCompanyOpen, setCompanyOpen] = useState(false);
   const [isAdditionalOpen, setAdditionalOpen] = useState(false);
+  const [isPrivacyPolicies, setIsPrivacyPolicies] = useState(false);
+
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -261,14 +263,14 @@ const Footer = () => {
         <div className="max-lg:min-w-[140px]">
           <h4
             className="text-[white]  font-semibold text-base relative max-sm:cursor-pointer"
-            onClick={() => setAdditionalOpen(!isAdditionalOpen)}
+            onClick={() => setIsPrivacyPolicies(!isPrivacyPolicies)}
           >
             Policies
            
              {isMobile && (
               <span className="absolute right-0 text-xl ">
                 {
-                isAdditionalOpen?   
+                isPrivacyPolicies?   
 
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="28px" fill="#EEE40A">
                   <path d="M200-440v-80h560v80H200Z"/>
@@ -281,7 +283,7 @@ const Footer = () => {
           </span>
             )}
           </h4>
-          {(isMobile ? isAdditionalOpen : true) && (
+          {(isMobile ? isPrivacyPolicies : true) && (
             <ul className="space-y-4 mt-6">
               <li>
                 <Link href="/privacy-policy" className="hover:text-gray-400 text-[#b3c5ce] text-sm">

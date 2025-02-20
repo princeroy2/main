@@ -2,7 +2,6 @@ import React from 'react'
 import Image from 'next/image'
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Link from 'next/link';
 import Head from 'next/head';
 import WhalesData2 from '@/cryptoapis/new_listing';
 export const metadata = {
@@ -16,8 +15,8 @@ export const metadata = {
     openGraph: {
       title: "New Crypto Coins Listed on Binance, KuCoin, Bitget & OKEx",
       description: "Track the latest new crypto coin listings on major exchanges like Binance, KuCoin, Bitget, and OKEx.",
-      image: "https://yourwebsite.com/images/new-crypto-listings.png", // Add an image relevant to crypto listings
-      url: "https://yourwebsite.com/new-crypto-listings",
+      image: "https://crptonews.com/images/ii.png", // Add an image relevant to crypto listings
+      url: "https://crptonews.com/new-listing",
       type: "website",
       imageAlt: "New Crypto Coin Listings",
     },
@@ -27,14 +26,14 @@ export const metadata = {
       card: "summary_large_image",
       title: "New Crypto Coins Listed on Binance, KuCoin, Bitget & OKEx",
       description: "Stay informed about the latest cryptocurrency coin listings on Binance, KuCoin, Bitget, and OKEx. Track new market opportunities.",
-      image: "https://yourwebsite.com/images/new-crypto-listings.png", // Add an image relevant to crypto listings
+      image: "https://crptonews.com/images/ii.png", // Add an image relevant to crypto listings
       imageAlt: "New Crypto Coin Listings",
     },
   
     // Charset Tag
     charset: "UTF-8",
   
-    canonical: "https://yourwebsite.com/new-crypto-listings",
+    canonical: "https://crptonews.com/new-listing",
   
     // Favicon Tag
     favicon: "/favicon.ico",
@@ -43,7 +42,7 @@ export const metadata = {
     structuredData: {
       "@context": "https://schema.org",
       "@type": "Website",
-      "url": "https://yourwebsite.com/new-crypto-listings",
+      "url": "https://crptonews.com/new-listing",
       "name": "Crypto Listings Tracker",
       "description": "Track new crypto coin listings on Binance, KuCoin, Bitget, OKEx and other exchanges. Stay updated on the latest altcoins and market opportunities.",
       "publisher": {
@@ -51,7 +50,7 @@ export const metadata = {
         "name": "Crypto Listings Tracker",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://yourwebsite.com/images/logo.png",
+          "url": "https://crptonews.com/images/ii.png",
           "alt": "Crypto Listings Tracker Logo",
         },
       },
@@ -63,7 +62,6 @@ export const metadata = {
   };
 const Page1= async () => {
     const data = await WhalesData2()
-    console.log(data)
 
     return (
         <>
@@ -103,8 +101,8 @@ const Page1= async () => {
                         width={400}
                         className=' text-center align-middle'
                     /> */}
-                    <h1 className='font-sans text-[30px] text-[#8f8f2c] font-bold'>New Coin Listing</h1>
-                    <h2 className='mt-2 text-[#212529] font-sans text-[18px] font-medium'>Track the latest whale movements, discover where the big players are moving</h2>
+                    <h1 className='font-sans text-[30px] max-sm:text-[20px] text-[#8f8f2c] font-bold'>New Coin Listing</h1>
+                    <h2 className='mt-2 text-[#212529] font-sans text-[16px] font-medium'>We aggressively monitor 47 exchanges to detect new crypto listings in real-time</h2>
 
                 </div>
 
@@ -113,9 +111,9 @@ const Page1= async () => {
 
 
             </div>
-            <div className=' bg-white text-[black] mt-5 max-sm:px-3 max-sm:mt-2 py-2 px-5 sm:mx-32'>
+            <div className=' bg-white text-[black] mt-2 max-lg:mx-3 max-lg:px-1 max-sm:mt-2 py-2 px-5 max-sm:px-1 lg:mx-32'>
 
-                <table className="w-full px-7 max-sm:px-2">
+                <table className="w-full md:px-7 max-sm:px-0">
 
                     <tbody className="">
                         {
@@ -127,9 +125,9 @@ const Page1= async () => {
                                     )
                                 
                                 return (
-
-                                    <tr key={index} className='max-sm:flex-col max-sm:flex border-b-2 '>
+                                    <tr key={index} className='max-sm:flex-col max-sm:flex border-b-2' >
                                         <td className="px-3 py-3 font-mono w-[80%] max-sm:w-[100%] hover:bg-gray hover:cursor-pointer text-white hover:text-gray-400 flex flex-row gap-3 items-center font-lg break-words whitespace-wrap group">
+
                                             <Image
                                                 height={20}
                                                 width={20}
@@ -149,19 +147,18 @@ const Page1= async () => {
                                                 width={20}
                                                 height={20}
                                             />
+                                       
 
                                         </td>
 
                                        <td className=" px-3 flex flex-row justify-end items-center  gap-1 max-sm:px-2 text-[black] max-sm:text-[12px] max-sm:text-end text-[14px] hover:cursor-pointer font-sans whitespace-wrap  hover:bg-gray text-right">
-                                        <Link href={item.link}>
                                         <span>{item.time}</span>
-                                        </Link>
-                                        <Link href={item.link}>
+                                        
 
                                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#666666"><path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
-                                        </Link></td>
+                                        </td>
                                     </tr>
-
+                                    
 
                                 )
                             })

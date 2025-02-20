@@ -1,6 +1,5 @@
 // app/new-coin-listing/page.js (or wherever your page is)
 
-import Ico2 from '@/components/ico_token2';
 import Upcoming2 from '@/components/upcoming2';
 import Head from 'next/head';
 
@@ -16,8 +15,8 @@ export const metadata = {
   openGraph: {
     title: "New Coins Listing - All Upcoming Crypto Coins & Tokens",
     description: "Find the latest new coin listings, presale opportunities, and crypto projects. Stay updated with CoinMarketCap and CoinGecko listings.",
-    image: 'https://crptonews.com/images/logo.png', // Default image for the new coin listing page
-    url: 'https://crptonews.com/new-coins',  // The main new coin listings page URL
+    image: 'https://crptonews.com/images/ii.png', // Default image for the new coin listing page
+    url: 'https://crptonews.com/market/upcoming-token',  // The main new coin listings page URL
     type: 'website',
   },
 
@@ -26,11 +25,11 @@ export const metadata = {
     card: 'summary_large_image', // Large image summary card
     title: "New Coins Listing - All Upcoming Crypto Coins & Tokens",
     description: "Discover new coins and upcoming token listings. Stay ahead with CoinMarketCap and CoinGecko updates.",
-    image: 'https://crptonews.com/images/logo.png', // Replace with your default image
+    image: 'https://crptonews.com/images/ii.png', // Replace with your default image
   },
 
   charset: 'UTF-8',
-  canonical: 'https://crptonews.com/new-coins', // Make sure this points to your actual new coin listing page
+  canonical: 'https://crptonews.com/market/upcoming-token', // Make sure this points to your actual new coin listing page
 
   // Structured Data for better SEO visibility
   structuredData: {
@@ -38,11 +37,11 @@ export const metadata = {
     "@type": "Product",
     "name": "New Coins Listing - Upcoming Crypto Coins & Tokens",
     "description": "Explore new cryptocurrency listings, presale opportunities, and coin tokens, including updates from CoinMarketCap and CoinGecko.",
-    "image": 'https://crptonews.com/images/logo.png', // Replace with a valid image URL
-    "url": 'https://crptonews.com/new-coins', // Replace with your new coin listing page URL
+    "image": 'https://crptonews.com/images/ii.png', // Replace with a valid image URL
+    "url": 'https://crptonews.com/market/upcoming-token', // Replace with your new coin listing page URL
     "offers": {
       "@type": "Offer",
-      "url": 'https://crptonews.com/new-coins',
+      "url": 'https://crptonews.com/market/upcoming-token',
       "priceCurrency": "USD", // Adjust based on your pricing currency (if relevant)
       "price": "0.10",  // Adjust token price (if relevant)
       "eligibleRegion": {
@@ -67,10 +66,10 @@ export default function NewCoinListingPage() {
         <meta name="twitter:title" content={metadata.twitter.title} />
         <meta name="twitter:description" content={metadata.twitter.description} />
         <meta name="twitter:image" content={metadata.twitter.image} />
-      </Head>
-      <div>
+      </Head>  
+      <div>   
         <Upcoming2 />
-      </div>
+      </div>                        
     </>
   );
 }
