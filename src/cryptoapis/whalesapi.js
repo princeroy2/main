@@ -2,7 +2,12 @@
 const WhalesData = async () => {
     try {
       // Fetch the news items using the given news type (like 'bitcoin', 'dogecoin', etc.)
-      const response = await fetch(`https://nativeapi.site/api/data/`)
+      const response = await fetch(`https://nativeapi.site/api/data/`,{
+          next: {
+            revalidate: 300, // Revalidate every 5 minutes (300 seconds)
+          },
+        
+      });
       if (!response.ok) {
         const errorText = await response.text();
         console.error('Error response:', errorText);

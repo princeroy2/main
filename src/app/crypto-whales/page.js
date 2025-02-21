@@ -142,20 +142,21 @@ const Page = async () => {
                                     src={item.img_url}
                                     alt="Icon"
                                 />
-                                <span
+                                <Link
+                                href={item.transfer_from}
                                     className="flex-1 text-[17px] text-[black]  overflow-hidden sm:text-ellipsis sm:line-clamp-2 max-sm:break-words"
                                     dangerouslySetInnerHTML={{
                                         __html: boldedDescription, // Render the modified description with bold numbers
                                     }}
                                 />
-
+                            <Link href={item.transfer_from}>
                                 <FontAwesomeIcon
                                     icon={faLink}
                                     className="invisible group-hover:visible"
                                     width={20}
                                     height={20}
                                 />
-
+</Link>
                             </td>
 
                            <td className=" px-3 flex flex-row justify-end items-center  gap-1 max-sm:px-2 text-[black] max-sm:text-[12px] max-sm:text-end text-[14px] hover:cursor-pointer font-sans whitespace-wrap  hover:bg-gray text-right">
