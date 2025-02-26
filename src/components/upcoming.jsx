@@ -21,6 +21,7 @@ export default function Upcoming({ serverData, visibleItems, handleShowMore }) {
                     height={40}
                     width={40}
                     className="w-10 h-10"
+                    unoptimized 
                 />
                 <h1 className="font-sans text-[30px]">Upcoming Coins</h1>
             </div>
@@ -101,6 +102,7 @@ Track the latest coin launches, their potential, and the buzz surrounding them
                                         width={25}
                                         src={image}
                                         className="w-[30px] h-[30px] object-cover"
+                                        unoptimized
                                     />
                                  <span className="text-sm font-serif text-[#007bff] md:text-lg font-medium">
   {name.length > 5 ? name.split('').slice(0, 5).join('') + '...' : name}

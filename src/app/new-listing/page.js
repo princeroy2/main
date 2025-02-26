@@ -133,6 +133,7 @@ const Page1= async () => {
                                                 width={20}
                                                 src={item.img_url}
                                                 alt="Icon"
+                                                unoptimized 
                                             />
                                             <span
                                                 className="flex-1 text-[17px] text-[black]  overflow-hidden sm:text-ellipsis sm:line-clamp-2 max-sm:break-words"

@@ -19,6 +19,7 @@ export default function Ico({ serverData, visibleItems, handleShowMore }) {
             height={40}
             width={40}
             className="w-10 h-10"
+            unoptimized 
         />
         <h1 className="font-sans text-[30px]">Presale Coins</h1>
     </div>
@@ -99,6 +100,7 @@ export default function Ico({ serverData, visibleItems, handleShowMore }) {
                                 width={20}
                                 src={image}
                                 className="w-[30px] h-[30px] object-cover"
+                                unoptimized 
                             />
                             <span className="text-sm max-sm:text-[10px] font-serif text-[#007bff] md:text-lg font-medium">{name}</span>
                         </td>
@@ -110,6 +112,7 @@ export default function Ico({ serverData, visibleItems, handleShowMore }) {
                                 height={20}
                                 width={20}
                                 src={chain_img}
+                                unoptimized 
                                 className="w-[20px] h-[20px] object-cover"
                             />
                             <span className="text-sm font-serif max-sm:text-[10px] text-[#007bff] md:text-lg font-medium">{chain_name}</span>

@@ -65,6 +65,7 @@ const Market_page = () => {
                         height={40}
                         width={40}
                         className="w-10 h-10"
+                        unoptimized 
                     />
                     <h1 className="font-sans text-[30px]">rypto Coins</h1>
                 </div>
@@ -149,6 +150,7 @@ const Market_page = () => {
                                                     height={25}
                                                     width={25}
                                                     src={item.img_src}
+                                                    unoptimized 
                                                     className="w-[30px] h-[30px] object-cover"
                                                 />
                                                 <span className="text-sm font-serif text-[#007bff] md:text-lg font-medium">{item.coin_name}</span>

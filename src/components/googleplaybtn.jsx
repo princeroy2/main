@@ -9,6 +9,7 @@ const DownloadBadges2 = () => {
           width={120}
           height={20}
           alt="Google Play"
+          unoptimized 
           className=''
         />
         <Image
@@ -17,6 +18,7 @@ const DownloadBadges2 = () => {
           height={20}
            className=''
           alt="apk-badge"
+          unoptimized 
         />
      
     </div>

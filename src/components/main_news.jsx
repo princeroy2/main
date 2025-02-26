@@ -23,6 +23,7 @@ const MainNews = ({ serverData, visibleItems, handleShowMore ,total_pages,curren
               className="object-cover max-sm:w-full rounded-lg"
               height={220}
               width={220}
+              unoptimized 
              
 
             />

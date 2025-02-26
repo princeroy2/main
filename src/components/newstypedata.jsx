@@ -70,6 +70,7 @@ const NewsTypedata =  ({ serverData, total_pages, news_name, current_page, visib
                       className="object-cover  max-sm:w-full rounded-lg"
                       height={220}
                       width={220}
+                      unoptimized 
                     />
                     <div className="flex flex-col justify-center gap-3">
                       <h1 className="text-lg font-semibold text-[#37474f] max-sm:text-[16px] max-sm:font-bold md:text-[16px]">

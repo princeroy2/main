@@ -98,6 +98,7 @@ const Page = async ({ params }) => {
               height={40}
               width={40}
               className="w-10 h-10"
+              unoptimized 
             />
             <h1 className="font-sans text-[30px] sm:text-[40px]">{data[0]?.FullName}</h1>
           </div>

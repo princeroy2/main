@@ -9,12 +9,14 @@ const DownloadBadges = ({name}) => {
           width={120}
           height={20}
           alt="Google Play"
+          unoptimized 
           className='mt-2 max-rs:w-8 h-full custom-range1 custom-ran1 '
         />
         <Image
           src="svg/apk-badge.svg" // Access SVG from public/svg
           width={135}
           height={20}
+          unoptimized 
            className='h-full custom-range2  custom-ran2'
           alt="apk-badge"
         />

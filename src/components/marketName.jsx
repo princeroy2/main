@@ -70,6 +70,7 @@ const Market_pagename = ({ name }) => {
             height={40}
             width={40}
             className='w-10 h-10'
+            unoptimized 
           />
           <h1 className='font-sans text-[30px]'>
             {name === 'new_coins' ? 'New Coins' :
@@ -151,7 +152,7 @@ const Market_pagename = ({ name }) => {
                     <tr key={index} className='px-4 py-3'>
                       {name !== 'new_coins' && <td className='px-5 py-5'>{item.rank}</td>}
                       <td className='flex flex-row items-center gap-3 px-2 py-5'>
-                        <Image alt={item.coin_name} height={25} width={25} src={item.img_src} className="w-[30px] h-[30px] object-cover" />
+                        <Image alt={item.coin_name} height={25} width={25} src={item.img_src} unoptimized  className="w-[30px] h-[30px] object-cover" />
                         <span className="text-sm font-serif text-[#007bff] md:text-lg font-medium">{item.coin_name}</span>
                       </td>
                       <td className='text-center  px-5 py-3'>{item.price}</td>

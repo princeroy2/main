@@ -141,6 +141,7 @@ const Page = async () => {
                                     width={20}
                                     src={item.img_url}
                                     alt="Icon"
+                                    unoptimized
                                 />
                                 <Link
                                 href={item.transfer_from}

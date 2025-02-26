@@ -106,7 +106,7 @@ const page = async () => {
       <div className="bg-[#f0f2f4] overflow-hidden">
         <div className="mt-10 py-2 px-5 sm:mx-32">
           <div className="flex flex-row gap-4 items-center">
-            <Image src="/images/btc.png" alt="logo.png" height={40} width={40} className="w-10 h-10" />
+            <Image src="/images/btc.png" alt="logo.png" height={40} width={40} className="w-10 h-10" unoptimized />
             <h1 className="font-sans text-[30px]">Crypto Coins Info</h1>
           </div>
           <p className="mt-2 text-[#212529] font-sans text-[18px]">

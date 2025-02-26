@@ -53,6 +53,7 @@ export default function Slider({ serverData }) {
                 alt={`Slide ${index + 1}`}
                 className="w-full object-cover max-sm:w-full  max-sm:h-full  h-full rounded-lg"
                 width={500}
+                unoptimized 
                 height={120}
               />    
                   <div className="absolute inset-0 bg-black opacity-50 rounded-lg"></div> {/* Transparent black overlay */}

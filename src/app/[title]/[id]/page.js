@@ -137,6 +137,7 @@ export default async function DiscriptionPage({ params }) {
                 className="w-full mt-3  rounded-lg"
                 height={120}
                 width={200}
+                unoptimized
               />
               <div className="flex flex-col">
                 <p className="max-sm:text-[15px] mt-6 font-serif text-[18px] leading-[2rem] text-[#37474f] tracking-[0.08rem] px-0 overflow-wrap-break-word whitespace-pre-line">

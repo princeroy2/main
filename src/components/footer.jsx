@@ -37,6 +37,7 @@ const Footer = () => {
               alt="Cryptonews"
               width={200}
               height={16}
+              unoptimized 
             />
           </a>
           <div className="mt-2">
@@ -55,6 +56,7 @@ const Footer = () => {
                       height={20}
                       alt="Google Play"
                       className='mt-2 h-full'
+                      unoptimized 
                     />
               </a>
             </li>
@@ -66,6 +68,7 @@ const Footer = () => {
                       height={20}
                       alt="Google Play"
                       className='mt-2 h-full'
+                      unoptimized 
                     />
               </a>
             </li>
@@ -77,6 +80,7 @@ const Footer = () => {
                       height={20}
                       alt="Google Play"
                       className='mt-2 h-full'
+                      unoptimized 
                     />
               </a>
             </li>
@@ -87,6 +91,7 @@ const Footer = () => {
                       width={30}
                       height={20}
                       alt="Google Play"
+                      unoptimized 
                       className='mt-2 h-full'
                     />
               </a>
@@ -99,6 +104,7 @@ const Footer = () => {
                       height={20}
                       alt="Google Play"
                       className='mt-2 h-full'
+                      unoptimized 
                     />
               </a>
             </li>

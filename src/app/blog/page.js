@@ -111,6 +111,7 @@ export default async function Main() {
               className="object-cover max-sm:w-full rounded-lg"
               height={220}
               width={220}
+              unoptimized 
              
 
             />

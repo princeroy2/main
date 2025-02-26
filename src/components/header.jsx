@@ -65,7 +65,7 @@ export const Header = () => {
 
         <div className="flex flex-row  items-center">
           <Link href="/">
-            <Image src={icon2} alt="Cryptonews" width={200} height={16} />
+            <Image src={icon2} alt="Cryptonews" width={200} height={16} unoptimized  />
           </Link>
         </div>
 
@@ -112,7 +112,7 @@ export const Header = () => {
 
             <div className="flex flex-row items-center justify-center h-16 bg-[#111827] w-full">
               <Link href="/" onClick={() => setIsMenuOpen(false)}>
-                <Image src={icon2} alt="Cryptonews" width={200} height={16} />
+                <Image src={icon2} alt="Cryptonews" width={200} height={16} unoptimized />
               </Link>
             </div>
             <span className="text-sm mt-4">Subscribe to our social media</span>
@@ -126,6 +126,7 @@ export const Header = () => {
                       height={20}
                       alt="Facebook"
                       className="mt-2 h-full"
+                      unoptimized 
                     />
                   </a>
                 </li>
@@ -137,6 +138,7 @@ export const Header = () => {
                       height={20}
                       alt="Twitter"
                       className="mt-2 h-full"
+                      unoptimized 
                     />
                   </a>
                 </li>
@@ -148,6 +150,7 @@ export const Header = () => {
                       height={20}
                       alt="Whatsapp"
                       className="mt-2 h-full"
+                      unoptimized 
                     />
                   </a>
                 </li>
@@ -159,6 +162,7 @@ export const Header = () => {
                       height={20}
                       alt="Instagram"
                       className="mt-2 h-full"
+                      unoptimized 
                     />
                   </a>
                 </li>
@@ -170,6 +174,7 @@ export const Header = () => {
                       height={20}
                       alt="Telegram"
                       className="mt-2 h-full"
+                      unoptimized 
                     />
                   </a>
                 </li>
