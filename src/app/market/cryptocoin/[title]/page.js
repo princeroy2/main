@@ -37,7 +37,15 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `${coinData.FullName} - CryptoNews`,
       description: coinData.Description || `Learn everything about ${coinData.FullName}, its market, technology, and use case on CryptoNews.`,
-      image: `https://www.cryptocompare.com/${coinData.ImageUrl}` || '/default-image.jpg',
+   
+      images: [
+        {
+          url: `https://www.cryptocompare.com/${coinData.ImageUrl}`, // Ensure this is the correct image URL
+          width: 1200, // Set a width and height for better preview rendering
+          height: 630,
+          alt: coinData.FullName,
+        },
+      ],
       url: `https://crptonews.com/${name}`,
       type: 'article',
       locale: 'en_US',

@@ -7,7 +7,7 @@ export const metadata = {
   openGraph: {
     title: 'CryptoNews Policies - Privacy, Terms, Refund, Disclaimer',
     description: 'Read the policies for CryptoNews, including Privacy Policy, Cookie Policy, Refund Policy, Disclaimer, and Terms of Use.',
-    image: 'https://crptonews.com/images/ii.png', // You can replace this with a custom image URL
+    image: 'https://crptonews.com/images/favicon.png', // You can replace this with a custom image URL
     url: 'https://crptonews.com/privacy-policy', // Set the URL to the page
     type: 'website',
     locale: 'en_US', // Locale for OpenGraph
@@ -16,7 +16,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'CryptoNews Policies - Privacy, Terms, Refund, Disclaimer',
     description: 'Read the policies for CryptoNews, including Privacy Policy, Cookie Policy, Refund Policy, Disclaimer, and Terms of Use.',
-    image: 'https://crptonews.com/images/ii.png', // You can replace this with a custom image URL
+    image: 'https://crptonews.com/images/favicon.png', // You can replace this with a custom image URL
   },
   canonical: 'https://crptonews.com/privacy-policy', // The canonical URL for the page
   robots: 'index, follow', // Ensure that the page is indexed by search engines
@@ -35,7 +35,7 @@ export const metadata = {
       name: 'CryptoNews',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://crptonews.com/images/ii.png', // Replace with your site's logo URL
+        url: 'https://crptonews.com/images/favicon.png', // Replace with your site's logo URL
       },
     },
   },

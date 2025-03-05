@@ -15,7 +15,7 @@ export const metadata = {
     openGraph: {
       title: "New Crypto Coins Listed on Binance, KuCoin, Bitget & OKEx",
       description: "Track the latest new crypto coin listings on major exchanges like Binance, KuCoin, Bitget, and OKEx.",
-      image: "https://crptonews.com/images/ii.png", // Add an image relevant to crypto listings
+      image: "https://crptonews.com/images/favicon.png", // Add an image relevant to crypto listings
       url: "https://crptonews.com/new-listing",
       type: "website",
       imageAlt: "New Crypto Coin Listings",
@@ -26,7 +26,7 @@ export const metadata = {
       card: "summary_large_image",
       title: "New Crypto Coins Listed on Binance, KuCoin, Bitget & OKEx",
       description: "Stay informed about the latest cryptocurrency coin listings on Binance, KuCoin, Bitget, and OKEx. Track new market opportunities.",
-      image: "https://crptonews.com/images/ii.png", // Add an image relevant to crypto listings
+      image: "https://crptonews.com/images/favicon.png", // Add an image relevant to crypto listings
       imageAlt: "New Crypto Coin Listings",
     },
   
@@ -50,7 +50,7 @@ export const metadata = {
         "name": "Crypto Listings Tracker",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://crptonews.com/images/ii.png",
+          "url": "https://crptonews.com/images/favicon.png",
           "alt": "Crypto Listings Tracker Logo",
         },
       },

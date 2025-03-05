@@ -49,7 +49,14 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `${article.title} - CryptoNews`,
       description: article.description,
-      image: article.image || '/image/ii.png',
+      images: [
+        {
+          url: article.image, // Ensure this is the correct image URL
+          width: 1200, // Set a width and height for better preview rendering
+          height: 630,
+          alt: article.title,
+        },
+      ],
       url: `https://crptonews.com/${formattedTitle}/${article.id}`,
       type: 'article',
       locale: 'en_US', // Use appropriate locale
@@ -58,7 +65,7 @@ export async function generateMetadata({ params }) {
       card: 'summary_large_image',
       title: `${article.title} - CryptoNews`,
       description: article.description,
-      image: article.image || '/image/ii.png',
+      image: article.image || '/image/favicon.png',
     },
     canonical: `https://crptonews.com/${formattedTitle}/${article.id}`,
     robots: 'index, follow', // Make sure the page is indexed
@@ -84,7 +91,7 @@ export async function generateMetadata({ params }) {
         name: 'CryptoNews',
         logo: {
           '@type': 'ImageObject',
-          url: '/images/ii.png', // Update with your site's logo
+          url: '/images/favicon.png', // Update with your site's logo
         },
       },
       mainEntityOfPage: `https://crptonews.com/${formattedTitle}/${article.id}`,

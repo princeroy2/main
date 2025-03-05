@@ -15,7 +15,7 @@ export const metadata = {
   openGraph: {
     title: "New Coins Listing - All Upcoming Crypto Coins & Tokens",
     description: "Find the latest new coin listings, presale opportunities, and crypto projects. Stay updated with CoinMarketCap and CoinGecko listings.",
-    image: 'https://crptonews.com/images/ii.png', // Default image for the new coin listing page
+    image: 'https://crptonews.com/images/favicon.png', // Default image for the new coin listing page
     url: 'https://crptonews.com/market/upcoming-token',  // The main new coin listings page URL
     type: 'website',
   },
@@ -25,7 +25,7 @@ export const metadata = {
     card: 'summary_large_image', // Large image summary card
     title: "New Coins Listing - All Upcoming Crypto Coins & Tokens",
     description: "Discover new coins and upcoming token listings. Stay ahead with CoinMarketCap and CoinGecko updates.",
-    image: 'https://crptonews.com/images/ii.png', // Replace with your default image
+    image: 'https://crptonews.com/images/favicon.png', // Replace with your default image
   },
 
   charset: 'UTF-8',
@@ -37,7 +37,7 @@ export const metadata = {
     "@type": "Product",
     "name": "New Coins Listing - Upcoming Crypto Coins & Tokens",
     "description": "Explore new cryptocurrency listings, presale opportunities, and coin tokens, including updates from CoinMarketCap and CoinGecko.",
-    "image": 'https://crptonews.com/images/ii.png', // Replace with a valid image URL
+    "image": 'https://crptonews.com/images/favicon.png', // Replace with a valid image URL
     "url": 'https://crptonews.com/market/upcoming-token', // Replace with your new coin listing page URL
     "offers": {
       "@type": "Offer",

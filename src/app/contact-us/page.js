@@ -34,7 +34,7 @@ export const metadata = {
       name: 'CryptoNews',
       logo: {
         '@type': 'ImageObject',
-        url: '/images/ii.png', // Replace with your site's logo URL
+        url: '/images/favicon.png', // Replace with your site's logo URL
       },
     },
   },

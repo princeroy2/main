@@ -16,9 +16,11 @@ const formatTitleForUrl = (title) => {
 
 // SEO Metadata generation (Next.js specific function)
 export async function generateMetadata({ params }) {
-  const {Title} =await params; // Safe access to params.title
-  const {id} = await params;  
+  
+  const {title,id} =await params; // Safe access to params.title
+  const Title=title
   const Apidata = await articlebyid(id,Title);
+  console.log(Apidata,'fffffffffffffffffffff')
   const article=Apidata.data // Format title from the URL
 
 
@@ -51,7 +53,14 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `${article.title} - CryptoNews`,
       description: article.description,
-      image: article.image_main || '/default-image.jpg',
+      images: [
+        {
+          url: article.image1, // Ensure this is the correct image URL
+          width: 1200, // Set a width and height for better preview rendering
+          height: 630,
+          alt: article.title,
+        },
+      ],
       url: `https://crptonews.com/blog/${Title}/${article.id}`,
       type: 'article',
       locale: 'en_US', // Use appropriate locale
@@ -60,7 +69,7 @@ export async function generateMetadata({ params }) {
       card: 'summary_large_image',
       title: `${article.title} - CryptoNews`,
       description: article.description,
-      image: article.image_main || '/default-image.jpg',
+      image: article.image1 || '/default-image.jpg',
     },
     canonical: `https://crptonews.com/blog/${Title}/${article.id}`,
     robots: 'index, follow', // Make sure the page is indexed
@@ -86,7 +95,7 @@ export async function generateMetadata({ params }) {
         name: 'CryptoNews',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://crptonews.com/images/ii.png',
+          url: 'https://crptonews.com/images/favicon.png',
         },
       },
       mainEntityOfPage: `https://crptonews.com/blog/${Title}/${article.id}`,
@@ -132,7 +141,7 @@ export default async function DiscriptionPage({ params }) {
                 <ShareButton
               title={daataapi111?.title}
               url={`https://crptonews.com/blog/${formattedTitle}`}
-              image={daataapi111?.image2}
+              image={daataapi111?.image1}
             />
               </div>
               <img

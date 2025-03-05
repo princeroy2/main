@@ -8,12 +8,12 @@ export const metadata  = {
   keywords: "cryptocurrency market, top cryptocurrencies, crypto prices, market cap, live crypto data, bitcoin, ethereum, altcoins, coin market data, crypto volume",
   author: "CryptoMarket Team",
   robots: "index, follow",
-  image: "/images/ii.png",
+  image: "/images/favicon.png",
   canonical: "https://crptonews.com/market",
   og: {
     title: "Top Cryptocurrency Market Data | Live Prices, Market Cap & Volume",
     description: "Explore the latest top cryptocurrency prices, market cap, volume, and other live data.",
-    image: "/images/ii.png",
+    image: "/images/favicon.png",
     type: "website",
     url: "https://crptonews.com/market",
   },
@@ -21,7 +21,7 @@ export const metadata  = {
     card: "summary_large_image",
     title: "Top Cryptocurrency Market Data | Live Prices, Market Cap & Volume",
     description: "Explore the latest top cryptocurrency prices, market cap, volume, and other live data.",
-    image: "/images/ii.png",
+    image: "/images/favicon.png",
     imageAlt: "Cryptocurrency Market Data",
   },
   jsonLd: {
@@ -35,7 +35,7 @@ export const metadata  = {
       "name": "CryptoMarket",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://crptonews.com/images/ii.png",
+        "url": "https://crptonews.com/images/favicon.png",
         "alt": "CryptoMarket Logo",
       },
     },

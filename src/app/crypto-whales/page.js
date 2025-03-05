@@ -16,7 +16,7 @@ export const metadata = {
     openGraph: {
       title: "Crypto Whale Tracker | Monitor Whale Transactions and Crypto Buyers",
       description: "Track major crypto transactions and movements by whales, including top buyers, wallet activities, and market insights.",
-      image: "https://crptonews.com/images/ii.png", // Ensure this image fits your content
+      image: "https://crptonews.com/images/favicon.png", // Ensure this image fits your content
       url: "https://crptonews.com/crypto-whales",
       type: "website",
       imageAlt: "Crypto Whale Monitoring",
@@ -27,7 +27,7 @@ export const metadata = {
       card: "summary_large_image",
       title: "Crypto Whale Tracker | Monitor Whale Transactions and Crypto Buyers",
       description: "Stay informed about crypto whales and their massive transactions. Track large buys and market moves.",
-      image: "https://crptonews.com/images/ii.png", // Ensure this image fits your content
+      image: "https://crptonews.com/images/favicon.png", // Ensure this image fits your content
       imageAlt: "Crypto Whale Monitoring",
     },
   
@@ -51,7 +51,7 @@ export const metadata = {
         "name": "Crypto Whale Tracker",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://crptonews.com/images/ii.png", // Use appropriate logo URL
+          "url": "https://crptonews.com/images/favicon.png", // Use appropriate logo URL
           "alt": "Crypto Whale Tracker Logo",
         },
       },

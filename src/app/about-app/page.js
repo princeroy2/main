@@ -6,7 +6,7 @@ export const metadata = {
   openGraph: {
     title: 'About Our Mobile App',
     description: 'Learn about our mobile app, its features, our mission, team, and vision for delivering the best mobile experience.',
-    image: 'https://crptonews.com/images/ii.png', // You can replace this with a custom image URL for your app
+    image: 'https://crptonews.com/images/favicon.png', // You can replace this with a custom image URL for your app
     url: 'https://crptonews.com/about-us', // The URL of your about page
     type: 'website',
     locale: 'en_US', // Locale for OpenGraph
@@ -15,7 +15,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'About Our Mobile App',
     description: 'Learn about our mobile app, its features, our mission, team, and vision for delivering the best mobile experience.',
-    image: 'https://crptonews.com/images/ii.png', // Custom image URL for Twitter card
+    image: 'https://crptonews.com/images/favicon.png', // Custom image URL for Twitter card
   },
   canonical: 'https://crptonews.com/about-us', // The canonical URL for the page
   robots: 'index, follow', // Ensure that the page is indexed by search engines
@@ -34,7 +34,7 @@ export const metadata = {
       name: 'Your Mobile App',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://crptonews.com/images/ii.png', // Replace with your app's logo URL
+        url: 'https://crptonews.com/images/favicon.png', // Replace with your app's logo URL
       },
     },
   },

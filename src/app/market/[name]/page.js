@@ -5,7 +5,7 @@ export async function generateMetadata({ params }) {
   const { name } =await params;
 
   // Defining common metadata to avoid repetition
-  const defaultImage = 'https://crptonews.com/images/ii.png'; // Change this to a real image URL
+  const defaultImage = 'https://crptonews.com/images/favicon.png'; // Change this to a real image URL
   const baseURL = 'https://crptonews.com';
 
   // Metadata for Defi Coins
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
         url: `${baseURL}/market/defi-coins`,
         images: [
           {
-            url: 'https://crptonews.com.com/images/ii.png', // Change to relevant image URL
+            url: 'https://crptonews.com.com/images/favicon.png', // Change to relevant image URL
             width: 800,
             height: 600,
             alt: 'Defi Coins Market'
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }) {
         site: '@YourTwitterHandle',
         title: 'Defi Coins - Live Prices, Market Cap & Upcoming Tokens',
         description: 'Explore the top Defi coins with live prices, market cap, rankings, and upcoming tokens.',
-        image: 'https://crptonews.com/images/ii.jpg', // Image URL for Twitter card
+        image: 'https://crptonews.com/images/favicon.jpg', // Image URL for Twitter card
       },
       jsonLd: {
         "@context": "https://schema.org",
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }) {
         "headline": "Defi Coins - Live Prices & Market Trends",
         "description": "Get the latest updates on Defi coins, including live prices, market cap, and upcoming tokens.",
         "url": `${baseURL}/market/defi-coins`,
-        "image": 'https://crptonews.com/images/ii.jpg', // Image URL for structured data
+        "image": 'https://crptonews.com/images/favicon.jpg', // Image URL for structured data
         "mainEntityOfPage": `${baseURL}/market/defi-coins`,
       }
     };
@@ -60,7 +60,7 @@ export async function generateMetadata({ params }) {
         url: `${baseURL}/market/new-coins`,
         images: [
           {
-            url: 'https://crptonews.com/images/ii.jpg', // Change to relevant image URL
+            url: 'https://crptonews.com/images/favicon.jpg', // Change to relevant image URL
             width: 800,
             height: 600,
             alt: 'New Crypto Coins'
@@ -72,7 +72,7 @@ export async function generateMetadata({ params }) {
         site: '@YourTwitterHandle',
         title: 'New Crypto Coins - Latest Listings, Prices, Market Cap & Volume',
         description: 'Stay updated with new coin listings, including prices, volume, market cap, and upcoming tokens.',
-        image: 'https://crptonews.com/images/ii.jpg', // Image URL for Twitter card
+        image: 'https://crptonews.com/images/favicon.jpg', // Image URL for Twitter card
       },
       jsonLd: {
         "@context": "https://schema.org",
@@ -80,7 +80,7 @@ export async function generateMetadata({ params }) {
         "headline": "New Crypto Coins - Latest Listings & Price Updates",
         "description": "Find the latest new coin listings, along with their prices, market cap, volume, and future updates.",
         "url": `${baseURL}/new-coins`,
-        "image": 'https://crptonews.com/images/ii.jpg', // Image URL for structured data
+        "image": 'https://crptonews.com/images/favicon.jpg', // Image URL for structured data
         "mainEntityOfPage": `${baseURL}/market/new-coins`,
       }
     };
@@ -98,7 +98,7 @@ export async function generateMetadata({ params }) {
       url: `${baseURL}/market`,
       images: [
         {
-          url: 'https://crptonews.com/images/ii.jpg', // Example image URL
+          url: 'https://crptonews.com/images/favicon.jpg', // Example image URL
           width: 800,
           height: 600,
           alt: 'Crypto Market'
@@ -110,7 +110,7 @@ export async function generateMetadata({ params }) {
       site: '@YourTwitterHandle',
       title: 'Crypto Market - Latest Coins and Prices',
       description: 'Stay up to date with the latest coins and market data in the cryptocurrency world.',
-      image: 'https://crptonews.com/images/ii.jpg', // Image URL for Twitter card
+      image: 'https://crptonews.com/images/favicon.jpg', // Image URL for Twitter card
     },
     jsonLd: {
       "@context": "https://schema.org",
@@ -118,7 +118,7 @@ export async function generateMetadata({ params }) {
       "headline": "Crypto Market - Latest Coins & Market Data",
       "description": "Find the most up-to-date information about cryptocurrency prices, rankings, and trends.",
       "url": `${baseURL}/market`,
-      "image": 'https://crptonews.com/images/ii.jpg', // Image URL for structured data
+      "image": 'https://crptonews.com/images/favicon.jpg', // Image URL for structured data
       "mainEntityOfPage": `${baseURL}/market`,
     }
   };

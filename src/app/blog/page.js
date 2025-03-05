@@ -15,7 +15,7 @@ export const metadata = {
   openGraph: {
     title: 'CryptoNews - Your Trusted Crypto Blog for Latest News & Insights',
     description: 'Explore the best crypto blogs, market analysis, and blockchain insights. Stay updated with expert opinions and crypto trends on CryptoNews.',
-    image: 'https://crptonews.com/images/ii.png',
+    image: 'https://crptonews.com/images/favicon.png',
     url: 'https://crptonews.com/blog',
     type: 'website',
     imageAlt: 'Crypto Blog Image',  // SEO-focused image alt text
@@ -26,7 +26,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: "CryptoNews | Crypto Blogs, Articles & Blockchain Insights",
     description: "Stay informed with the latest crypto blogs, blockchain articles, and expert market analysis. Get up-to-date insights on cryptocurrency trends at CryptoNews.com.",
-    image: 'https://crptonews.com/images/ii.png',
+    image: 'https://crptonews.com/images/favicon.png',
     imageAlt: 'Crypto Blog Image',  // SEO-focused image alt text for Twitter
   },
 
@@ -53,7 +53,7 @@ export const metadata = {
         "name": "CryptoNews",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://crptonews.com/images/ii.png",
+          "url": "https://crptonews.com/images/favicon.png",
           "alt": "CryptoNews Logo"
         }
       },

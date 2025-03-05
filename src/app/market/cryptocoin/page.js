@@ -14,7 +14,7 @@ export const metadata = {
   openGraph: {
     title: "Crypto Coins Info | A-Z List of Cryptocurrencies",
     description: "Browse through a complete A-Z list of cryptocurrencies with important details on exchanges, wallets, and market insights.",
-    image: "https://crptonews.com/images/ii.jpg", // Ensure this image fits your content
+    image: "https://crptonews.com/images/favicon.jpg", // Ensure this image fits your content
     url: "https://crptonews.com/market/cryptocoin",
     type: "website",
     imageAlt: "Crypto Coins Info",
@@ -25,7 +25,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Crypto Coins Info | A-Z List of Cryptocurrencies",
     description: "Find the best exchanges and wallets for your cryptocurrency investments with a complete A-Z list of coins.",
-    image: "https://crptonews.com/images/ii.jpg", // Ensure this image fits your content
+    image: "https://crptonews.com/images/favicon.jpg", // Ensure this image fits your content
     imageAlt: "Crypto Coins Info",
   },
 
@@ -49,7 +49,7 @@ export const metadata = {
       "name": "Crypto Coins Info",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://crptonews.com/images/ii.jpg", // Use appropriate logo URL
+        "url": "https://crptonews.com/images/favicon.jpg", // Use appropriate logo URL
         "alt": "Crypto Coins Info Logo",
       },
     },

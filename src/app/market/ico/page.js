@@ -15,7 +15,7 @@ export const metadata = {
   openGraph: {
     title: "ICO Presale - All Upcoming ICOs",
     description: "Don’t miss out on the latest ICO presale opportunities. Get early access to tokens and participate in exciting projects.",
-    image: 'https://crptonews.com/images/ii.png', // Default image for the ICO page
+    image: 'https://crptonews.com/images/favicon.png', // Default image for the ICO page
     url: 'https://crptonews.com/market/ico',  // This will be the main ICO page URL
     type: 'website',
   },
@@ -25,7 +25,7 @@ export const metadata = {
     card: 'summary_large_image', // Large image summary card
     title: "ICO Presale - All Upcoming ICOs",
     description: "Explore the latest ICO presale opportunities. Secure your tokens in upcoming ICOs!",
-    image: 'https://crptonews.com/images/ii.png', // Replace with your default image
+    image: 'https://crptonews.com/images/favicon.png', // Replace with your default image
   },
 
   charset: 'UTF-8',
@@ -37,7 +37,7 @@ export const metadata = {
     "@type": "Product",
     "name": "ICO Presale - Upcoming ICOs",
     "description": "Explore all upcoming ICOs, secure your tokens, and be a part of the blockchain revolution.",
-    "image": 'https://crptonews.com/images/ii.png', // Replace with a valid image URL
+    "image": 'https://crptonews.com/images/favicon.png', // Replace with a valid image URL
     "url": 'https://crptonews.com/market/ico', // Replace with your ICO page URL
     "offers": {
       "@type": "Offer",

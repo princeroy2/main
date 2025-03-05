@@ -51,4 +51,3 @@ export default async function sitemap() {
   // Return all URLs as the sitemap
   return allUrls;
 }
-
