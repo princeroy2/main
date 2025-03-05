@@ -1,0 +1,39 @@
+/* styles/marquee.css */
+.container {
+    position: relative;
+    width: 90%;
+    /* border: 1px solid #777; */
+    /* background: linear-gradient(110deg, #8a8884 60%, #8a8884 60%); */
+    font-family: 'Oswald', serif;
+  }
+  
+  .container,
+  .container .headertext {
+    /* padding: 7px;
+    background-color: #fff;
+    color: #626060;
+    font-weight: bold; */
+  }
+  
+  .container .headertext {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    /* padding: 10px 10px; */
+    border-right: 1px solid #777;
+    background: #C8102E;
+    color: #fff;
+    text-shadow: 1px 1px #111;
+  }
+  
+  .container marquee {
+    line-height: 1.5;
+  }
+  
+  .container marquee p {
+    margin: 0;
+  }
+
+  
+  
