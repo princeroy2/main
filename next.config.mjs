@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  server: {
-    timeout: 60000, // Set timeout to 60 seconds (default is 30 seconds)
-  },
+
     images: {
       domains: [
         'cnews24.ru', 
